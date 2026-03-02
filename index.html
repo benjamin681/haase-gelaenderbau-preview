@@ -2612,13 +2612,22 @@
 
     <script>
         /* ===== PRELOADER WITH PREMIUM EXIT ===== */
-        window.addEventListener('load', function() {
+        (function() {
             var preloader = document.querySelector('.preloader');
-            setTimeout(function() {
+            var dismissed = false;
+            function dismissPreloader() {
+                if (dismissed || !preloader) return;
+                dismissed = true;
                 preloader.classList.add('exit');
                 setTimeout(function() { preloader.classList.add('hidden'); }, 1200);
-            }, 1800);
-        });
+            }
+            /* Dismiss after page fully loaded + short delay for animation */
+            window.addEventListener('load', function() {
+                setTimeout(dismissPreloader, 600);
+            });
+            /* Safety: max 3.5s regardless of load state */
+            setTimeout(dismissPreloader, 3500);
+        })();
 
         /* ===== SCROLL PROGRESS BAR ===== */
         var scrollProgress = document.getElementById('scrollProgress');
@@ -2706,6 +2715,16 @@
             });
         }, { threshold: 0.05, rootMargin: '50px 0px -20px 0px' });
         document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function(el) { revealObs.observe(el); });
+
+        /* Re-check all reveal elements after preloader exits (safety net) */
+        setTimeout(function() {
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function(el) {
+                if (!el.classList.contains('visible')) {
+                    revealObs.unobserve(el);
+                    revealObs.observe(el);
+                }
+            });
+        }, 4200);
 
         /* ===== COUNTER ANIMATION WITH DRAMATIC EFFECT ===== */
         var countersStarted = false;
