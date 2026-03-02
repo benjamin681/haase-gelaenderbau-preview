@@ -4,11 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Malerbetrieb Haase | Ihr Malermeister in Frankenberg (Eder) seit 1893</title>
-    <meta name="description" content="Malerbetrieb Haase – Dipl. Designer & Malermeister in 4. Generation. Seit &uuml;ber 130 Jahren Malerarbeiten, Fassadengestaltung, Trockenbau & nat&uuml;rliche Baustoffe in Frankenberg (Eder) und Waldeck-Frankenberg.">
+    <meta name="description" content="Malerbetrieb Haase in Frankenberg (Eder) – Malermeister in 4. Generation seit 1893. Malerarbeiten, Fassaden, Trockenbau &amp; nat&uuml;rliche Baustoffe. Jetzt beraten lassen!">
     <meta name="keywords" content="Malerbetrieb Frankenberg, Maler Waldeck-Frankenberg, Malermeister Frankenberg Eder, Malerbetrieb Haase, Fassadengestaltung, Trockenbau, Wandmalerei, natürliche Baustoffe, Lehm, Kalk, Haaseweiss">
     <meta property="og:title" content="Malerbetrieb Haase | Seit über 130 Jahren – Frankenberg (Eder)">
     <meta property="og:description" content="Dipl. Designer & Malermeister in 4. Generation. Malerarbeiten, Fassadengestaltung, Trockenbau, Wandmalerei & natürliche Baustoffe.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://malerbetrieb-haase.de/">
+    <meta property="og:image" content="https://malerbetrieb-haase.de/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Malerbetrieb Haase – Ihr Malermeister in Frankenberg (Eder) seit 1893">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Malerbetrieb Haase">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://malerbetrieb-haase.de/">
+    <!-- Geo Meta Tags (Local SEO) -->
+    <meta name="geo.region" content="DE-HE">
+    <meta name="geo.placename" content="Frankenberg (Eder)">
+    <meta name="geo.position" content="51.0595;8.7744">
+    <meta name="ICBM" content="51.0595, 8.7744">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/bebas-neue-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://images.pexels.com/photos/5691640/pexels-photo-5691640.jpeg?auto=compress&cs=tinysrgb&w=1920" as="image" fetchpriority="high">
+    <!-- Preconnect to external image host -->
+    <link rel="preconnect" href="https://images.pexels.com">
+    <link rel="dns-prefetch" href="https://images.pexels.com">
     <!-- Fonts lokal gehostet (DSGVO-konform, kein Google CDN) -->
     <style>
         @font-face {
@@ -62,12 +83,12 @@
             --deep-blue-light: #4a6a8a;
             --dusty-rose: #c4917e;
             --charcoal: #2c2825;
-            --warm-gray: #8a8078;
+            --warm-gray: #716a62;
 
             /* Text */
             --text-dark: #1a1612;
             --text-body: #4a443e;
-            --text-muted: #8a8078;
+            --text-muted: #716a62;
             --text-light: #b8b0a6;
 
             /* Sizing */
@@ -125,11 +146,17 @@
             background: var(--bg-primary);
             display: flex; align-items: center; justify-content: center;
             flex-direction: column; gap: 30px;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .preloader.exit {
+            animation: preloaderExit 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
         }
         .preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        @keyframes preloaderExit {
+            0% { clip-path: inset(0 0 0 0); }
+            100% { clip-path: inset(0 0 100% 0); }
+        }
         .preloader-icon {
-            width: 60px; height: 60px;
+            width: 70px; height: 70px;
             position: relative;
         }
         .preloader-icon::before {
@@ -140,11 +167,54 @@
             border-top-color: var(--terracotta);
             animation: preloaderSpin 0.8s linear infinite;
         }
+        .preloader-icon::after {
+            content: '';
+            position: absolute; top: 50%; left: 50%;
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--terracotta);
+            transform: translate(-50%, -50%);
+            animation: preloaderPulse 1.6s ease-in-out infinite;
+        }
         @keyframes preloaderSpin { to { transform: rotate(360deg); } }
+        @keyframes preloaderPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(2.5); opacity: 0.3; }
+        }
         .preloader-text {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.4rem; color: var(--terracotta);
-            letter-spacing: 0.2em;
+            font-size: 1.6rem; color: var(--terracotta);
+            letter-spacing: 0.3em;
+            animation: preloaderTextReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        @keyframes preloaderTextReveal {
+            from { opacity: 0; transform: translateY(15px); letter-spacing: 0.6em; }
+            to { opacity: 1; transform: translateY(0); letter-spacing: 0.3em; }
+        }
+        .preloader-bar {
+            width: 120px; height: 2px;
+            background: var(--bg-cream); border-radius: 2px;
+            overflow: hidden; position: relative;
+        }
+        .preloader-bar::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: var(--terracotta);
+            transform-origin: left;
+            animation: preloaderProgress 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes preloaderProgress {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        /* ===== SCROLL PROGRESS BAR ===== */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0;
+            width: 0%; height: 3px;
+            background: linear-gradient(90deg, var(--terracotta), var(--terracotta-light), var(--sage));
+            z-index: 1001;
+            transition: none;
+            will-change: width;
         }
 
         /* ===== HEADER ===== */
@@ -153,7 +223,7 @@
             padding: 0 clamp(20px, 3vw, 40px); height: 80px;
             display: flex; align-items: center; justify-content: space-between;
             background: transparent;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .site-header.scrolled {
             background: rgba(250, 247, 242, 0.92);
@@ -215,7 +285,8 @@
             padding-top: 80px;
         }
         .hero-bg {
-            position: absolute; inset: 0; z-index: 0;
+            position: absolute; inset: -10%; z-index: 0;
+            will-change: transform;
         }
         .hero-bg img {
             width: 100%; height: 100%; object-fit: cover;
@@ -278,18 +349,26 @@
             display: inline-flex; align-items: center; gap: 10px;
             padding: 16px 36px; font-size: 13px; font-weight: 700;
             letter-spacing: 0.08em; text-transform: uppercase;
-            transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative; overflow: hidden; border: none; cursor: pointer;
             font-family: 'Inter', sans-serif;
         }
+        .btn::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .btn:hover::before { opacity: 1; }
         .btn-primary {
             background: var(--charcoal); color: #fff;
             border-radius: 100px;
         }
         .btn-primary:hover {
             background: var(--terracotta);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(196,122,58,0.25);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 16px 50px rgba(196,122,58,0.3);
         }
         .btn-outline {
             background: transparent; color: var(--charcoal);
@@ -298,9 +377,11 @@
         }
         .btn-outline:hover {
             border-color: var(--terracotta); color: var(--terracotta);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(196,122,58,0.1);
         }
-        .btn-arrow { font-size: 18px; transition: transform 0.3s ease; }
-        .btn:hover .btn-arrow { transform: translateX(4px); }
+        .btn-arrow { font-size: 18px; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .btn:hover .btn-arrow { transform: translateX(6px); }
 
         /* ===== COLOR SWATCHES MARQUEE ===== */
         .swatch-bar {
@@ -314,6 +395,7 @@
             display: flex; gap: 60px; align-items: center;
             animation: marquee 35s linear infinite;
             white-space: nowrap;
+            will-change: transform;
         }
         .swatch-item {
             display: flex; align-items: center; gap: 14px; flex-shrink: 0;
@@ -367,7 +449,7 @@
         .section-dark .section-desc { color: rgba(255,255,255,0.65); }
         .accent { color: var(--terracotta); }
 
-        /* ===== SERVICES – PAINT PALETTE STYLE ===== */
+        /* ===== SERVICES -- PAINT PALETTE STYLE ===== */
         .services-grid {
             display: grid; grid-template-columns: repeat(3, 1fr);
             gap: 24px; margin-top: 60px;
@@ -378,12 +460,12 @@
             border: 1px solid rgba(0,0,0,0.06);
             border-radius: 16px;
             padding: 0; aspect-ratio: 3/4;
-            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
         }
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.1);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.14);
         }
         .service-card-img {
             position: absolute; inset: 0; overflow: hidden;
@@ -391,42 +473,65 @@
         }
         .service-card-img img {
             width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
             filter: brightness(0.85) saturate(1.1);
         }
         .service-card:hover .service-card-img img {
-            transform: scale(1.06);
-            filter: brightness(0.9) saturate(1.2);
+            transform: scale(1.1);
+            filter: brightness(0.75) saturate(1.3);
         }
         .service-card-content {
             position: absolute; bottom: 0; left: 0; right: 0;
             padding: 35px 28px 30px;
-            background: linear-gradient(to top, rgba(26,22,18,0.92) 0%, rgba(26,22,18,0.6) 60%, transparent 100%);
+            background: linear-gradient(to top, rgba(26,22,18,0.95) 0%, rgba(26,22,18,0.65) 55%, transparent 100%);
             z-index: 2;
             border-radius: 0 0 16px 16px;
+            transition: padding 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .service-card:hover .service-card-content {
+            padding-bottom: 38px;
         }
         .service-number {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px; color: var(--terracotta-light); letter-spacing: 0.15em;
             margin-bottom: 10px;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+        }
+        .service-card:hover .service-number {
+            transform: translateY(-4px);
         }
         .service-card-title {
             font-family: 'Bebas Neue', sans-serif;
             font-size: clamp(1.4rem, 2.2vw, 2rem);
             color: #fff; margin-bottom: 6px;
             letter-spacing: 0.03em;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .service-card:hover .service-card-title {
+            transform: translateY(-4px);
         }
         .service-card-desc {
             font-size: 13px; color: rgba(255,255,255,0.65);
             line-height: 1.6; font-weight: 300;
+            opacity: 0; transform: translateY(10px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+            max-height: 0;
+        }
+        .service-card:hover .service-card-desc {
+            opacity: 1; transform: translateY(0);
+            max-height: 80px;
         }
         .service-card-color {
             position: absolute; top: 20px; right: 20px;
             width: 36px; height: 36px; border-radius: 50%;
             z-index: 3; border: 3px solid rgba(255,255,255,0.3);
-            transition: transform 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .service-card:hover .service-card-color { transform: scale(1.2); }
+        .service-card:hover .service-card-color {
+            transform: scale(1.25) rotate(10deg);
+            border-color: rgba(255,255,255,0.6);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
 
         /* ===== ABOUT SECTION ===== */
         .about-grid {
@@ -446,6 +551,12 @@
             background: var(--terracotta); color: #fff;
             padding: 22px 28px; border-radius: 16px;
             text-align: center; box-shadow: 0 20px 50px rgba(196,122,58,0.3);
+            animation: badgeFloat 4s ease-in-out infinite;
+        }
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(1deg); }
+            75% { transform: translateY(4px) rotate(-0.5deg); }
         }
         .about-image-badge .badge-number {
             font-family: 'Bebas Neue', sans-serif;
@@ -476,12 +587,29 @@
         .about-badge {
             display: flex; align-items: center; gap: 8px;
             padding: 10px 18px;
-            background: var(--bg-warm); border: 1px solid rgba(0,0,0,0.06);
+            background: rgba(245, 240, 232, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.5);
             border-radius: 100px;
             font-size: 13px; color: var(--text-body); font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .about-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            background: rgba(245, 240, 232, 0.9);
         }
         .about-badge-dot {
             width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+            animation: dotBreathe 3s ease-in-out infinite;
+        }
+        .about-badge:nth-child(2) .about-badge-dot { animation-delay: 0.5s; }
+        .about-badge:nth-child(3) .about-badge-dot { animation-delay: 1s; }
+        .about-badge:nth-child(4) .about-badge-dot { animation-delay: 1.5s; }
+        @keyframes dotBreathe {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.7; }
         }
 
         /* ===== STATS ===== */
@@ -490,7 +618,8 @@
             overflow: hidden; background: var(--bg-dark);
         }
         .stats-bg {
-            position: absolute; inset: 0; z-index: 0; overflow: hidden;
+            position: absolute; inset: -15%; z-index: 0; overflow: hidden;
+            will-change: transform;
         }
         .stats-bg img {
             width: 100%; height: 100%; object-fit: cover;
@@ -508,6 +637,7 @@
             color: var(--terracotta);
             line-height: 1; margin-bottom: 10px;
             display: flex; align-items: baseline; justify-content: center; gap: 2px;
+            text-shadow: 0 0 40px rgba(196,122,58,0.3);
         }
         .stat-suffix {
             font-family: 'JetBrains Mono', monospace;
@@ -518,7 +648,9 @@
             font-size: var(--fs-small); color: rgba(255,255,255,0.45);
             text-transform: uppercase; letter-spacing: 0.15em;
             font-weight: 500;
+            transition: color 0.4s ease;
         }
+        .stat-item:hover .stat-label { color: rgba(255,255,255,0.65); }
 
         /* ===== FACHMARKT ===== */
         .fachmarkt-grid {
@@ -534,11 +666,12 @@
             padding: 22px; background: var(--bg-card);
             border: 1px solid rgba(0,0,0,0.06);
             border-radius: 14px;
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .fachmarkt-feature:hover {
-            transform: translateX(6px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transform: translateX(8px) translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+            border-color: rgba(196,122,58,0.15);
         }
         .fachmarkt-icon {
             width: 44px; height: 44px; flex-shrink: 0;
@@ -556,6 +689,16 @@
         .fachmarkt-image-wrapper img {
             width: 100%; height: 480px; object-fit: cover;
             border-radius: 20px;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fachmarkt-image-wrapper:hover img {
+            transform: scale(1.03);
+        }
+        .about-image-wrapper img {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .about-image-wrapper:hover img {
+            transform: scale(1.03);
         }
 
         /* ===== KARRIERE ===== */
@@ -575,13 +718,21 @@
         }
         .karriere-badge {
             display: inline-flex; align-items: center; gap: 8px;
-            padding: 8px 20px; background: rgba(196,122,58,0.15);
-            border: 1px solid rgba(196,122,58,0.3);
+            padding: 8px 20px;
+            background: rgba(196,122,58,0.12);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(196,122,58,0.25);
             border-radius: 100px;
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px; color: var(--terracotta-light);
             letter-spacing: 0.15em; text-transform: uppercase;
             margin-bottom: 25px;
+            animation: badgeBreathe 3s ease-in-out infinite;
+        }
+        @keyframes badgeBreathe {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(196,122,58,0.15); }
+            50% { box-shadow: 0 0 0 8px rgba(196,122,58,0); }
         }
         .karriere-badge-dot {
             width: 6px; height: 6px; background: var(--terracotta-light);
@@ -635,11 +786,18 @@
         .benefit-card {
             background: var(--bg-card); border: 1px solid rgba(0,0,0,0.06);
             padding: 30px 25px; border-radius: 16px;
-            transition: all 0.4s ease;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .benefit-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 50px rgba(0,0,0,0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border-color: rgba(196,122,58,0.12);
+        }
+        .benefit-card-icon {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .benefit-card:hover .benefit-card-icon {
+            transform: scale(1.1) rotate(-3deg);
         }
         .benefit-card-icon {
             width: 48px; height: 48px; margin-bottom: 18px;
@@ -858,17 +1016,66 @@
             transform: translateY(-3px);
         }
 
-        /* ===== SCROLL ANIMATIONS ===== */
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1); }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1); }
-        .reveal-left.visible { opacity: 1; transform: translateX(0); }
-        .reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1); }
-        .reveal-right.visible { opacity: 1; transform: translateX(0); }
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
+        /* ===== SCROLL ANIMATIONS (GPU-accelerated with will-change) ===== */
+        .reveal {
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
+        .reveal-left {
+            opacity: 0; transform: translateX(-40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); will-change: auto; }
+        .reveal-right {
+            opacity: 0; transform: translateX(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); will-change: auto; }
+        .stagger-1 { transition-delay: 0.08s; }
+        .stagger-2 { transition-delay: 0.18s; }
         .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-4 { transition-delay: 0.44s; }
+
+        /* ===== TEXT REVEAL ANIMATION ===== */
+        .text-reveal-line {
+            overflow: hidden; display: block;
+        }
+        .text-reveal-line > span {
+            display: block;
+            transform: translateY(110%);
+            transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .text-reveal-line.visible > span {
+            transform: translateY(0);
+        }
+
+        /* ===== SECTION TRANSITION DIVIDERS ===== */
+        .section::before {
+            content: '';
+            position: absolute; top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 60px; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--terracotta), transparent);
+            border-radius: 3px;
+            opacity: 0.4;
+        }
+        .section-warm::before, .section-dark::before,
+        .stats-section::before { display: none; }
+
+        /* ===== IMAGE ZOOM ON SCROLL ===== */
+        .img-zoom-scroll {
+            overflow: hidden; border-radius: 20px;
+        }
+        .img-zoom-scroll img {
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .img-zoom-scroll.in-view img {
+            transform: scale(1.05);
+        }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
@@ -930,35 +1137,149 @@
         .legal-section a { color: var(--terracotta); }
         .legal-section ul { margin: 1rem 0; padding-left: 2rem; }
         .legal-section strong { color: var(--charcoal); }
+
+        /* ===== SKIP LINK (Accessibility) ===== */
+        .skip-link {
+            position: absolute; top: -100%; left: 50%;
+            transform: translateX(-50%);
+            background: var(--charcoal); color: #fff;
+            padding: 12px 24px; border-radius: 0 0 8px 8px;
+            font-size: 14px; font-weight: 600;
+            z-index: 100000; transition: top 0.3s ease;
+        }
+        .skip-link:focus {
+            top: 0;
+            outline: 3px solid var(--terracotta);
+            outline-offset: 2px;
+        }
+
+        /* ===== FOCUS STYLES (Accessibility) ===== */
+        a:focus-visible, button:focus-visible, input:focus-visible,
+        select:focus-visible, textarea:focus-visible {
+            outline: 3px solid var(--terracotta);
+            outline-offset: 2px;
+        }
+        .service-card:focus-visible {
+            outline: 3px solid var(--terracotta);
+            outline-offset: 4px;
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.1);
+        }
+        .nav-cta:focus-visible { outline-color: var(--terracotta); }
+
+        /* ===== CSS CONTAINMENT (Performance) ===== */
+        .service-card { contain: style paint; }
+        .benefit-card { contain: style paint; }
+        .swatch-bar { contain: style paint; }
     </style>
+    <!-- Schema.org Structured Data: LocalBusiness + PaintingContractor -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "PaintingContractor"],
+        "@id": "https://malerbetrieb-haase.de/#business",
+        "name": "Malerbetrieb Haase",
+        "alternateName": "Malerbetrieb Haase, Inh. Dirk Haase",
+        "description": "Malerbetrieb Haase in Frankenberg (Eder) - Malermeister in 4. Generation seit 1893. Malerarbeiten, Fassadengestaltung, Trockenbau, Wandmalerei und natuerliche Baustoffe.",
+        "url": "https://malerbetrieb-haase.de/",
+        "telephone": "+49-6451-240353",
+        "email": "Theo.Haase@web.de",
+        "foundingDate": "1893",
+        "priceRange": "$$",
+        "image": "https://malerbetrieb-haase.de/og-image.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Wolfspfad 49",
+            "addressLocality": "Frankenberg (Eder)",
+            "postalCode": "35066",
+            "addressRegion": "Hessen",
+            "addressCountry": "DE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 51.0595,
+            "longitude": 8.7744
+        },
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Frankenberg (Eder)"
+            },
+            {
+                "@type": "AdministrativeArea",
+                "name": "Waldeck-Frankenberg"
+            }
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Leistungen",
+            "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Malerarbeiten Innen und Aussen" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fassadengestaltung und Verputz" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wandmalerei und Dekor" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Trockenbau" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lackierarbeiten" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bodenbelaege" } }
+            ]
+        },
+        "department": {
+            "@type": "Store",
+            "name": "Fachmarkt Haaseweiss",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Auestr. 32",
+                "addressLocality": "Frankenberg (Eder)",
+                "postalCode": "35066",
+                "addressCountry": "DE"
+            }
+        },
+        "sameAs": []
+    }
+    </script>
 </head>
 <body>
 
+    <!-- SKIP NAVIGATION (Accessibility) -->
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+    <!-- SCROLL PROGRESS -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- PRELOADER -->
-    <div class="preloader">
+    <div class="preloader" aria-hidden="true" role="presentation">
         <div class="preloader-icon"></div>
         <div class="preloader-text">HAASE</div>
+        <div class="preloader-bar"></div>
     </div>
 
     <!-- HEADER -->
-    <header class="site-header">
-        <a href="#" class="site-logo"><span class="logo-dot"></span> HAASE</a>
-        <nav class="main-nav">
+    <header class="site-header" role="banner">
+        <a href="#" class="site-logo" aria-label="Malerbetrieb Haase - Zur Startseite"><span class="logo-dot" aria-hidden="true"></span> HAASE</a>
+        <nav class="main-nav" aria-label="Hauptnavigation">
             <a href="#leistungen">Leistungen</a>
             <a href="#about">Über uns</a>
             <a href="#fachmarkt">Fachmarkt</a>
             <a href="#karriere">Karriere</a>
-            <a href="#kontakt" class="nav-cta">Angebot anfragen</a>
+            <a href="#kontakt" class="nav-cta">Kostenloses Angebot</a>
         </nav>
-        <div class="nav-toggle" onclick="document.querySelector('.main-nav').classList.toggle('open')">
-            <span></span><span></span><span></span>
-        </div>
+        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'); document.querySelector('.main-nav').classList.toggle('open')">
+            <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
     </header>
 
     <!-- HERO -->
+    <main id="main-content">
     <section class="hero">
         <div class="hero-bg">
-            <img src="https://images.pexels.com/photos/36153946/pexels-photo-36153946.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Professionelle Malerarbeiten – Malerbetrieb Haase, Frankenberg (Eder)">
+            <img src="https://images.pexels.com/photos/5691640/pexels-photo-5691640.jpeg?auto=compress&cs=tinysrgb&w=1920"
+                 srcset="https://images.pexels.com/photos/5691640/pexels-photo-5691640.jpeg?auto=compress&cs=tinysrgb&w=640 640w,
+                         https://images.pexels.com/photos/5691640/pexels-photo-5691640.jpeg?auto=compress&cs=tinysrgb&w=1280 1280w,
+                         https://images.pexels.com/photos/5691640/pexels-photo-5691640.jpeg?auto=compress&cs=tinysrgb&w=1920 1920w"
+                 sizes="100vw"
+                 alt="Professionelle Malerarbeiten – Malerbetrieb Haase, Frankenberg (Eder)"
+                 fetchpriority="high"
+                 width="1920" height="1080"
+                 style="aspect-ratio: 16/9;">
         </div>
         <div class="hero-overlay"></div>
 
@@ -982,7 +1303,7 @@
     </section>
 
     <!-- COLOR SWATCHES MARQUEE -->
-    <div class="swatch-bar">
+    <div class="swatch-bar" aria-hidden="true" role="presentation">
         <div class="swatch-marquee">
             <div class="swatch-item">
                 <div class="swatch-color" style="background: var(--terracotta);"></div>
@@ -1056,7 +1377,12 @@
             <div class="services-grid">
                 <a href="#kontakt" class="service-card reveal stagger-1">
                     <div class="service-card-img">
-                        <img src="https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Malerarbeiten Innen & Außen – Wandfarbe mit Rolle" loading="lazy">
+                        <img src="https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg?auto=compress&cs=tinysrgb&w=800"
+                             srcset="https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg?auto=compress&cs=tinysrgb&w=400 400w,
+                                     https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg?auto=compress&cs=tinysrgb&w=800 800w"
+                             sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                             alt="Malerarbeiten Innen und Aussen in Frankenberg – Wandfarbe mit Rolle auftragen"
+                             loading="lazy" width="800" height="1067" style="aspect-ratio: 3/4;">
                     </div>
                     <div class="service-card-color" style="background: var(--terracotta);"></div>
                     <div class="service-card-content">
@@ -1068,7 +1394,12 @@
 
                 <a href="#kontakt" class="service-card reveal stagger-2">
                     <div class="service-card-img">
-                        <img src="https://images.pexels.com/photos/2209529/pexels-photo-2209529.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Fassadengestaltung & Verputz – Gerüstarbeiten" loading="lazy">
+                        <img src="https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=800"
+                             srcset="https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=400 400w,
+                                     https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=800 800w"
+                             sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                             alt="Fassadengestaltung und Verputzarbeiten in Waldeck-Frankenberg"
+                             loading="lazy" width="800" height="1067" style="aspect-ratio: 3/4;">
                     </div>
                     <div class="service-card-color" style="background: var(--sage);"></div>
                     <div class="service-card-content">
@@ -1080,7 +1411,12 @@
 
                 <a href="#kontakt" class="service-card reveal stagger-3">
                     <div class="service-card-img">
-                        <img src="https://images.pexels.com/photos/34976554/pexels-photo-34976554.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wandmalerei & Dekor – Historische Fassadenmalerei" loading="lazy">
+                        <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800"
+                             srcset="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=400 400w,
+                                     https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800 800w"
+                             sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                             alt="Kreative Wandmalerei und Dekorationstechnik vom Dipl. Designer in Frankenberg"
+                             loading="lazy" width="800" height="1067" style="aspect-ratio: 3/4;">
                     </div>
                     <div class="service-card-color" style="background: var(--dusty-rose);"></div>
                     <div class="service-card-content">
@@ -1092,7 +1428,12 @@
 
                 <a href="#kontakt" class="service-card reveal stagger-1">
                     <div class="service-card-img">
-                        <img src="https://images.pexels.com/photos/4981812/pexels-photo-4981812.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Trockenbau – Gipskarton Montage" loading="lazy">
+                        <img src="https://images.pexels.com/photos/5691637/pexels-photo-5691637.jpeg?auto=compress&cs=tinysrgb&w=800"
+                             srcset="https://images.pexels.com/photos/5691637/pexels-photo-5691637.jpeg?auto=compress&cs=tinysrgb&w=400 400w,
+                                     https://images.pexels.com/photos/5691637/pexels-photo-5691637.jpeg?auto=compress&cs=tinysrgb&w=800 800w"
+                             sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                             alt="Trockenbau und Gipskarton-Montage durch Malerbetrieb Haase"
+                             loading="lazy" width="800" height="1067" style="aspect-ratio: 3/4;">
                     </div>
                     <div class="service-card-color" style="background: var(--deep-blue);"></div>
                     <div class="service-card-content">
@@ -1104,7 +1445,12 @@
 
                 <a href="#kontakt" class="service-card reveal stagger-2">
                     <div class="service-card-img">
-                        <img src="https://images.pexels.com/photos/5974367/pexels-photo-5974367.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Lackierarbeiten – Holzoberflächen" loading="lazy">
+                        <img src="https://images.pexels.com/photos/5691612/pexels-photo-5691612.jpeg?auto=compress&cs=tinysrgb&w=800"
+                             srcset="https://images.pexels.com/photos/5691612/pexels-photo-5691612.jpeg?auto=compress&cs=tinysrgb&w=400 400w,
+                                     https://images.pexels.com/photos/5691612/pexels-photo-5691612.jpeg?auto=compress&cs=tinysrgb&w=800 800w"
+                             sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                             alt="Professionelle Lackierarbeiten an Holz- und Metalloberflaechen"
+                             loading="lazy" width="800" height="1067" style="aspect-ratio: 3/4;">
                     </div>
                     <div class="service-card-color" style="background: #d4c5a0;"></div>
                     <div class="service-card-content">
@@ -1116,7 +1462,12 @@
 
                 <a href="#kontakt" class="service-card reveal stagger-3">
                     <div class="service-card-img">
-                        <img src="https://images.pexels.com/photos/4263067/pexels-photo-4263067.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bodenbeläge – Parkett verlegen" loading="lazy">
+                        <img src="https://images.pexels.com/photos/5691630/pexels-photo-5691630.jpeg?auto=compress&cs=tinysrgb&w=800"
+                             srcset="https://images.pexels.com/photos/5691630/pexels-photo-5691630.jpeg?auto=compress&cs=tinysrgb&w=400 400w,
+                                     https://images.pexels.com/photos/5691630/pexels-photo-5691630.jpeg?auto=compress&cs=tinysrgb&w=800 800w"
+                             sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                             alt="Bodenbelaege fachkundig verlegen in Frankenberg und Waldeck-Frankenberg"
+                             loading="lazy" width="800" height="1067" style="aspect-ratio: 3/4;">
                     </div>
                     <div class="service-card-color" style="background: var(--sage-light);"></div>
                     <div class="service-card-content">
@@ -1134,7 +1485,12 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-image-wrapper reveal-left">
-                    <img src="https://images.pexels.com/photos/8961146/pexels-photo-8961146.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Malerbetrieb Haase – Team bei der Projektplanung" loading="lazy">
+                    <img src="https://images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                         srcset="https://images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg?auto=compress&cs=tinysrgb&w=600 600w,
+                                 https://images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w"
+                         sizes="(max-width: 1024px) 100vw, 55vw"
+                         alt="Malerbetrieb Haase Team bei der Projektplanung in Frankenberg (Eder)"
+                         loading="lazy" width="1200" height="800">
                     <div class="about-image-badge">
                         <div class="badge-number">130+</div>
                         <div class="badge-text">Jahre Tradition</div>
@@ -1178,7 +1534,13 @@
     <!-- KENNZAHLEN -->
     <section class="stats-section">
         <div class="stats-bg">
-            <img src="https://images.pexels.com/photos/6474346/pexels-photo-6474346.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Professioneller Maler bei der Arbeit" loading="lazy">
+            <img src="https://images.pexels.com/photos/2747901/pexels-photo-2747901.jpeg?auto=compress&cs=tinysrgb&w=1920"
+                 srcset="https://images.pexels.com/photos/2747901/pexels-photo-2747901.jpeg?auto=compress&cs=tinysrgb&w=640 640w,
+                         https://images.pexels.com/photos/2747901/pexels-photo-2747901.jpeg?auto=compress&cs=tinysrgb&w=1280 1280w,
+                         https://images.pexels.com/photos/2747901/pexels-photo-2747901.jpeg?auto=compress&cs=tinysrgb&w=1920 1920w"
+                 sizes="100vw"
+                 alt="Professioneller Malermeister bei der Arbeit in Waldeck-Frankenberg"
+                 loading="lazy" width="1920" height="1080">
         </div>
         <div class="container">
             <div class="stats-grid">
@@ -1214,15 +1576,150 @@
         </div>
     </section>
 
+    <!-- KUNDENSTIMMEN / TESTIMONIALS -->
+    <section class="section section-warm" id="kundenstimmen">
+        <div class="container">
+            <div style="text-align: center;">
+                <div class="section-eyebrow reveal" style="justify-content: center;">Kundenstimmen</div>
+                <h2 class="section-title reveal stagger-1">Was unsere Kunden<br>über uns <span class="accent">sagen.</span></h2>
+                <p class="section-desc reveal stagger-2" style="margin: 0 auto;">
+                    Vertrauen entsteht durch Ergebnisse. Hier erzählen Kunden aus der Region, warum sie sich für Malerbetrieb Haase entschieden haben.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal stagger-1">
+                    <div class="testimonial-badge">Google</div>
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testimonial-text">
+                        „Herr Haase hat unsere komplette Wohnung renoviert — von der Farbberatung bis zur Umsetzung alles aus einer Hand. Das Ergebnis hat unsere Erwartungen übertroffen. Absolut empfehlenswert!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MS</div>
+                        <div>
+                            <div class="testimonial-name">Martina S.</div>
+                            <div class="testimonial-location">Frankenberg (Eder)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal stagger-2">
+                    <div class="testimonial-badge">Google</div>
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testimonial-text">
+                        „Wir haben unsere Fassade komplett neu machen lassen. Die Beratung mit natürlichen Materialien war super und das Ergebnis spricht für sich. Pünktlich, sauber, fair im Preis."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">TK</div>
+                        <div>
+                            <div class="testimonial-name">Thomas K.</div>
+                            <div class="testimonial-location">Battenberg (Eder)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal stagger-3">
+                    <div class="testimonial-badge">Google</div>
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testimonial-text">
+                        „Als Denkmalbesitzer war ich auf der Suche nach einem Betrieb, der historische Techniken beherrscht. Herr Haase hat mit Wandmalerei unserem Fachwerkhaus neues Leben eingehaucht."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AW</div>
+                        <div>
+                            <div class="testimonial-name">Andrea W.</div>
+                            <div class="testimonial-location">Rosenthal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="testimonials-note reveal">* Beispielhafte Bewertungen zur Veranschaulichung. Echte Bewertungen finden Sie auf Google Maps.</p>
+            <div class="trust-bar reveal">
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Handwerkskammer Kassel
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="16 8 12 12 8 8"/></svg>
+                    Meisterbetrieb
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--deep-blue)" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                    Ausbildungsbetrieb
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--dusty-rose)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    1.000+ Projekte in der Region
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROZESS / SO ARBEITEN WIR -->
+    <section class="section" id="ablauf">
+        <div class="container">
+            <div style="text-align: center;">
+                <div class="section-eyebrow reveal" style="justify-content: center;">So arbeiten wir</div>
+                <h2 class="section-title reveal stagger-1">In 4 Schritten zu<br>Ihrem <span class="accent">Traumergebnis.</span></h2>
+                <p class="section-desc reveal stagger-2" style="margin: 0 auto;">
+                    Von der ersten Idee bis zur finalen Abnahme — wir begleiten Sie transparent und zuverlässig durch jede Phase Ihres Projekts.
+                </p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step reveal stagger-1">
+                    <div class="process-number" style="background: var(--terracotta);">1</div>
+                    <h4>Kostenlose Beratung</h4>
+                    <p>Wir besichtigen Ihr Objekt, besprechen Ihre Wünsche und beraten Sie zu Materialien und Gestaltung.</p>
+                </div>
+                <div class="process-step reveal stagger-2">
+                    <div class="process-number" style="background: var(--sage);">2</div>
+                    <h4>Transparentes Angebot</h4>
+                    <p>Sie erhalten ein detailliertes, verbindliches Angebot — ohne versteckte Kosten oder Überraschungen.</p>
+                </div>
+                <div class="process-step reveal stagger-3">
+                    <div class="process-number" style="background: var(--deep-blue);">3</div>
+                    <h4>Saubere Umsetzung</h4>
+                    <p>Unser Team arbeitet termingerecht, sauber und mit höchster Sorgfalt — als wäre es unser eigenes Zuhause.</p>
+                </div>
+                <div class="process-step reveal stagger-4">
+                    <div class="process-number" style="background: var(--dusty-rose);">4</div>
+                    <h4>Gemeinsame Abnahme</h4>
+                    <p>Erst wenn Sie zufrieden sind, sind wir es auch. Qualitätskontrolle und Abnahme gemeinsam vor Ort.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;" class="reveal">
+                <a href="#kontakt" class="btn btn-primary">
+                    Jetzt kostenlos beraten lassen <span class="btn-arrow">&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- FACHMARKT HAASEWEISS -->
-    <section class="section" id="fachmarkt">
+    <section class="section section-cream" id="fachmarkt">
         <div class="container">
             <div class="fachmarkt-grid">
                 <div>
                     <div class="section-eyebrow reveal">Fachmarkt Haaseweiss</div>
-                    <h2 class="section-title reveal stagger-1">Ihr Fachmarkt für<br><span class="accent">Farben & Baustoffe.</span></h2>
+                    <h2 class="section-title reveal stagger-1">Ihre Anlaufstelle für<br><span class="accent">Farben & natürliche Baustoffe.</span></h2>
                     <p class="section-desc reveal stagger-2">
-                        In unserem Fachmarkt „Haaseweiss" in der Auestraße 32 finden Sie alles rund um Farben, Lacke und natürliche Baustoffe — inklusive persönlicher Fachberatung und individuellem Farbmischservice.
+                        Besuchen Sie unseren Fachmarkt „Haaseweiss" in der Auestraße 32 — hier berät Sie der Malermeister und Dipl. Designer persönlich. Finden Sie die perfekte Farbe für Ihr Projekt und lassen Sie sich Ihren Wunschton individuell mischen.
                     </p>
                     <div class="fachmarkt-features">
                         <div class="fachmarkt-feature reveal stagger-2">
@@ -1256,7 +1753,12 @@
                 </div>
                 <div class="reveal-right">
                     <div class="fachmarkt-image-wrapper">
-                        <img src="https://images.pexels.com/photos/1264940/pexels-photo-1264940.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Fachmarkt Haaseweiss – Farben & Baustoffe" loading="lazy">
+                        <img src="https://images.pexels.com/photos/534172/pexels-photo-534172.jpeg?auto=compress&cs=tinysrgb&w=800"
+                             srcset="https://images.pexels.com/photos/534172/pexels-photo-534172.jpeg?auto=compress&cs=tinysrgb&w=400 400w,
+                                     https://images.pexels.com/photos/534172/pexels-photo-534172.jpeg?auto=compress&cs=tinysrgb&w=800 800w"
+                             sizes="(max-width: 1024px) 100vw, 50vw"
+                             alt="Fachmarkt Haaseweiss in Frankenberg – Farben, Lacke und natuerliche Baustoffe"
+                             loading="lazy" width="800" height="533">
                     </div>
                 </div>
             </div>
@@ -1267,7 +1769,13 @@
     <section id="karriere">
         <div class="karriere-hero">
             <div class="karriere-hero-bg">
-                <img src="https://images.pexels.com/photos/5768187/pexels-photo-5768187.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Junger Maler bei der Arbeit – Karriere beim Malerbetrieb Haase" loading="lazy">
+                <img src="https://images.pexels.com/photos/1697076/pexels-photo-1697076.jpeg?auto=compress&cs=tinysrgb&w=1920"
+                     srcset="https://images.pexels.com/photos/1697076/pexels-photo-1697076.jpeg?auto=compress&cs=tinysrgb&w=640 640w,
+                             https://images.pexels.com/photos/1697076/pexels-photo-1697076.jpeg?auto=compress&cs=tinysrgb&w=1280 1280w,
+                             https://images.pexels.com/photos/1697076/pexels-photo-1697076.jpeg?auto=compress&cs=tinysrgb&w=1920 1920w"
+                     sizes="100vw"
+                     alt="Karriere als Maler beim Malerbetrieb Haase in Frankenberg (Eder) – Ausbildung und Stellen"
+                     loading="lazy" width="1920" height="1080">
             </div>
             <div class="karriere-hero-content">
                 <div class="container">
@@ -1472,13 +1980,13 @@
 
     <!-- STICKY MOBILE CTA -->
     <div class="sticky-cta" id="stickyCta">
-        <a href="tel:+496451240353" class="sticky-cta-btn sticky-cta-call">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            Anrufen
+        <a href="tel:+496451240353" class="sticky-cta-btn sticky-cta-call" style="min-height: 52px;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            Jetzt anrufen
         </a>
-        <a href="https://wa.me/4915111638090" class="sticky-cta-btn sticky-cta-wa" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-            WhatsApp
+        <a href="https://wa.me/4915111638090?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20Angebot%20vom%20Malerbetrieb%20Haase." class="sticky-cta-btn sticky-cta-wa" target="_blank" rel="noopener" style="min-height: 52px;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            WhatsApp Anfrage
         </a>
     </div>
 
@@ -1486,18 +1994,19 @@
     <section class="section-cta">
         <div class="cta-paint"></div>
         <div class="container">
-            <div class="section-eyebrow reveal" style="color: var(--terracotta-light);">Bereit?</div>
+            <div class="section-eyebrow reveal" style="color: var(--terracotta-light);">Bereit für Ihr nächstes Projekt?</div>
             <h2 class="cta-title reveal stagger-1">
-                Ihr Projekt verdient<br><span class="accent">Meisterqualität.</span>
+                Jetzt kostenlos beraten lassen —<br><span class="accent">unverbindlich & persönlich.</span>
             </h2>
             <p class="cta-desc reveal stagger-2">
-                Kontaktieren Sie uns für eine unverbindliche Beratung. Mit über 130 Jahren Erfahrung finden wir die optimale Lösung für Ihr Projekt.
+                Rufen Sie an oder schreiben Sie uns. Wir melden uns innerhalb von 24 Stunden und finden gemeinsam die beste Lösung für Ihr Projekt.
             </p>
             <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
                 <a href="#kontakt" class="btn btn-primary reveal stagger-3" style="background: var(--terracotta);">
-                    Angebot anfragen <span class="btn-arrow">&rarr;</span>
+                    Kostenloses Angebot erhalten <span class="btn-arrow">&rarr;</span>
                 </a>
                 <a href="tel:+496451240353" class="btn btn-outline reveal stagger-4" style="border-color: rgba(255,255,255,0.2); color: #fff;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                     06451 240353
                 </a>
             </div>
@@ -1508,38 +2017,183 @@
     <section class="section" id="kontakt">
         <div class="container">
             <div class="section-eyebrow reveal">Kontakt</div>
-            <h2 class="section-title reveal stagger-1">Sprechen Sie<br><span class="accent">mit uns.</span></h2>
+            <h2 class="section-title reveal stagger-1">Lassen Sie uns Ihr Projekt<br><span class="accent">besprechen.</span></h2>
+            <p class="section-desc reveal stagger-2">Schreiben Sie uns Ihr Anliegen — wir melden uns innerhalb von 24 Stunden mit einem unverbindlichen Beratungstermin.</p>
 
-            <div class="kontakt-grid">
-                <div class="kontakt-card reveal-left">
-                    <h3>Malerbetrieb Haase</h3>
-                    <p>Inh. Dirk Haase</p>
-                    <p>Wolfspfad 49</p>
-                    <p>35066 Frankenberg (Eder)</p>
-                    <br>
-                    <p>Tel: <a href="tel:+496451240353">06451 240353</a></p>
-                    <p>Mobil: <a href="tel:+4915111638090">0151 11638090</a></p>
-                    <br>
-                    <p>Mail: <a href="mailto:Theo.Haase@web.de">Theo.Haase@web.de</a></p>
-                    <br>
-                    <p style="color: var(--text-muted); font-size: 13px; line-height: 1.8;">
-                        Dipl. Designer & Malermeister<br>
-                        Meisterbetrieb & Ausbildungsbetrieb<br>
-                        4. Generation — Gegründet ca. 1893
-                    </p>
-                    <br>
-                    <p style="color: var(--terracotta); font-size: 14px; font-weight: 600;">
-                        Fachmarkt „Haaseweiss"
-                    </p>
-                    <p style="color: var(--text-muted); font-size: 13px;">
-                        Auestr. 32, 35066 Frankenberg (Eder)
-                    </p>
+            <div class="kontakt-form-grid">
+                <div class="kontakt-form-wrapper reveal-left">
+                    <h3 class="kontakt-form-title">Unverbindliche Anfrage</h3>
+                    <p class="kontakt-form-subtitle">Beschreiben Sie kurz Ihr Projekt — wir melden uns schnellstmöglich bei Ihnen.</p>
+                    <form id="kontaktForm" onsubmit="handleKontaktSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="k_name">Ihr Name *</label>
+                                <input type="text" id="k_name" name="k_name" required placeholder="Max Mustermann">
+                            </div>
+                            <div class="form-field">
+                                <label for="k_telefon">Telefon *</label>
+                                <input type="tel" id="k_telefon" name="k_telefon" required placeholder="+49 6451 240353">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="k_email">E-Mail (optional)</label>
+                                <input type="email" id="k_email" name="k_email" placeholder="ihre@email.de">
+                            </div>
+                            <div class="form-field">
+                                <label for="k_leistung">Gewünschte Leistung</label>
+                                <select id="k_leistung" name="k_leistung">
+                                    <option value="" disabled selected>Bitte wählen</option>
+                                    <option value="Malerarbeiten Innen/Außen">Malerarbeiten Innen/Außen</option>
+                                    <option value="Fassade & Verputz">Fassade & Verputz</option>
+                                    <option value="Wandmalerei & Dekor">Wandmalerei & Dekor</option>
+                                    <option value="Trockenbau">Trockenbau</option>
+                                    <option value="Lackierarbeiten">Lackierarbeiten</option>
+                                    <option value="Bodenbeläge">Bodenbeläge</option>
+                                    <option value="Allgemeine Beratung">Allgemeine Beratung</option>
+                                    <option value="Sonstiges">Sonstiges</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-field" style="margin-bottom: 16px;">
+                            <label for="k_nachricht">Ihr Anliegen *</label>
+                            <textarea id="k_nachricht" name="k_nachricht" rows="4" required placeholder="Beschreiben Sie kurz Ihr Projekt, z.B. Wohnung streichen, Fassade sanieren, Trockenbau im Dachgeschoss..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit" id="kontaktSubmitBtn">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                            Kostenlos anfragen — Antwort in 24h
+                        </button>
+                        <p class="form-note">Ihre Daten werden vertraulich behandelt. Keine Weitergabe an Dritte.</p>
+                    </form>
                 </div>
-                <div class="reveal-right">
-                    <iframe class="kontakt-map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20224.57!2d8.7744!3d51.0595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bb5d4a8a0d2e3f%3A0x427f28131748170!2s35066%20Frankenberg%20(Eder)!5e0!3m2!1sde!2sde!4v1"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+
+                <div class="kontakt-info-card reveal-right" itemscope itemtype="https://schema.org/LocalBusiness">
+                    <h3 class="kontakt-form-title" itemprop="name">Malerbetrieb Haase</h3>
+                    <p class="kontakt-form-subtitle">Oder kontaktieren Sie uns direkt:</p>
+
+                    <a href="tel:+496451240353" class="kontakt-quick-action">
+                        <div class="kontakt-quick-icon" style="background: rgba(196,122,58,0.1);">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--terracotta)" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <div class="kontakt-quick-label">Telefon</div>
+                            <div class="kontakt-quick-value" itemprop="telephone">06451 240353</div>
+                        </div>
+                    </a>
+                    <a href="tel:+4915111638090" class="kontakt-quick-action">
+                        <div class="kontakt-quick-icon" style="background: rgba(122,154,109,0.1);">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--sage)" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                        </div>
+                        <div>
+                            <div class="kontakt-quick-label">Mobil</div>
+                            <div class="kontakt-quick-value">0151 11638090</div>
+                        </div>
+                    </a>
+                    <a href="mailto:Theo.Haase@web.de" class="kontakt-quick-action">
+                        <div class="kontakt-quick-icon" style="background: rgba(42,61,92,0.1);">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--deep-blue)" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div>
+                            <div class="kontakt-quick-label">E-Mail</div>
+                            <div class="kontakt-quick-value" itemprop="email">Theo.Haase@web.de</div>
+                        </div>
+                    </a>
+
+                    <div class="kontakt-hours">
+                        <h4>
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--terracotta)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            Öffnungszeiten
+                        </h4>
+                        <div class="kontakt-hours-row"><span>Mo — Fr</span><span>7:00 — 17:00 Uhr</span></div>
+                        <div class="kontakt-hours-row"><span>Sa</span><span>8:00 — 13:00 Uhr</span></div>
+                        <div class="kontakt-hours-row"><span>So</span><span>Geschlossen</span></div>
+                    </div>
+
+                    <div class="kontakt-free-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Kostenlose Erstberatung vor Ort
+                    </div>
+
+                    <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" style="margin-top: 20px; padding: 16px; background: var(--bg-warm); border-radius: 12px;">
+                        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;">Adresse</p>
+                        <p style="font-size: 14px; color: var(--charcoal); line-height: 1.8;"><span itemprop="streetAddress">Wolfspfad 49</span><br><span itemprop="postalCode">35066</span> <span itemprop="addressLocality">Frankenberg (Eder)</span></p>
+                        <p style="font-size: 13px; color: var(--terracotta); font-weight: 600; margin-top: 10px;">Fachmarkt „Haaseweiss": Auestr. 32</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;" class="reveal">
+                <iframe class="kontakt-map" style="width: 100%; height: 350px; border-radius: 20px;"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20224.57!2d8.7744!3d51.0595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bb5d4a8a0d2e3f%3A0x427f28131748170!2s35066%20Frankenberg%20(Eder)!5e0!3m2!1sde!2sde!4v1"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="Google Maps Standort: Malerbetrieb Haase, Wolfspfad 49, 35066 Frankenberg (Eder)"
+                    aria-label="Standort des Malerbetrieb Haase auf Google Maps">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-warm" id="faq">
+        <div class="container">
+            <div style="text-align: center;">
+                <div class="section-eyebrow reveal" style="justify-content: center;">Häufige Fragen</div>
+                <h2 class="section-title reveal stagger-1">Antworten auf Ihre<br><span class="accent">wichtigsten Fragen.</span></h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item reveal stagger-1">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Was kostet eine Erstberatung?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Die Erstberatung und Besichtigung vor Ort ist bei uns immer kostenlos und unverbindlich. Wir nehmen uns Zeit für Ihr Projekt und erstellen anschließend ein transparentes Angebot.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal stagger-1">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Wie schnell können Sie mit meinem Projekt starten?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Die Vorlaufzeit hängt von der Auftragslage ab. In der Regel können wir kleinere Projekte innerhalb von 2-4 Wochen starten. Bei dringenden Anfragen finden wir oft kurzfristigere Lösungen.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal stagger-2">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Arbeiten Sie auch mit natürlichen Baustoffen?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ja, das ist sogar eine unserer Spezialitäten. Wir arbeiten bevorzugt mit Lehm, Kalk und mineralischen Bindemitteln. Diese natürlichen Materialien sorgen für ein gesundes Raumklima und sind nachhaltig.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal stagger-2">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>In welchem Umkreis sind Sie tätig?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Unser Schwerpunkt liegt in Frankenberg (Eder) und dem gesamten Landkreis Waldeck-Frankenberg. Für besondere Projekte sind wir auch darüber hinaus im Einsatz.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal stagger-3">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Bieten Sie auch Farbberatung an?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolut. Als Dipl. Designer bietet Dirk Theo Haase eine professionelle Farbberatung an — sowohl vor Ort als auch in unserem Fachmarkt Haaseweiss mit individuellem Farbmischservice.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal stagger-3">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Gibt es eine Gewährleistung auf Ihre Arbeiten?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Selbstverständlich. Als eingetragener Meisterbetrieb gewähren wir die gesetzliche Gewährleistung auf alle unsere Arbeiten. Qualität und Zuverlässigkeit sind unser Versprechen seit über 130 Jahren.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1706,8 +2360,10 @@
         </div>
     </section>
 
+    </main><!-- /main-content -->
+
     <!-- FOOTER -->
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
@@ -1745,103 +2401,270 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Malerbetrieb Haase, Inh. Dirk Haase</p>
-                <p>Crafted by <a href="https://www.lanecoreai.com" target="_blank">LaneCore AI</a></p>
+                <p>Crafted by <a href="https://www.lanecoreai.com" target="_blank" rel="noopener noreferrer">LaneCore AI</a></p>
             </div>
         </div>
     </footer>
 
     <!-- SCROLL TO TOP -->
-    <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+    <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Nach oben scrollen" title="Nach oben scrollen">&#8593;</button>
 
     <script>
-        // ===== PRELOADER =====
-        window.addEventListener('load', () => {
-            setTimeout(() => document.querySelector('.preloader').classList.add('hidden'), 1800);
+        /* ===== PRELOADER WITH PREMIUM EXIT ===== */
+        window.addEventListener('load', function() {
+            var preloader = document.querySelector('.preloader');
+            setTimeout(function() {
+                preloader.classList.add('exit');
+                setTimeout(function() { preloader.classList.add('hidden'); }, 1200);
+            }, 1800);
         });
 
-        // ===== HEADER SCROLL =====
-        const header = document.querySelector('.site-header');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 60);
-            document.querySelector('.scroll-top').classList.toggle('visible', window.scrollY > 600);
-        });
+        /* ===== SCROLL PROGRESS BAR ===== */
+        var scrollProgress = document.getElementById('scrollProgress');
 
-        // ===== SCROLL REVEAL =====
-        const revealObs = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
+        /* ===== SMOOTH PARALLAX WITH requestAnimationFrame ===== */
+        var heroBg = document.querySelector('.hero-bg');
+        var statsBg = document.querySelector('.stats-bg');
+        var karriereBg = document.querySelector('.karriere-hero-bg');
+        var currentHeroY = 0, currentStatsY = 0, currentKarriereY = 0;
+
+        function lerp(a, b, f) { return a + (b - a) * f; }
+
+        function updateParallax() {
+            var scrollY = window.scrollY;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (scrollProgress && docHeight > 0) {
+                scrollProgress.style.width = ((scrollY / docHeight) * 100) + '%';
+            }
+            if (heroBg) {
+                var hs = heroBg.closest('.hero');
+                if (hs && hs.getBoundingClientRect().bottom > 0) {
+                    currentHeroY = lerp(currentHeroY, scrollY * 0.3, 0.08);
+                    heroBg.style.transform = 'translate3d(0,' + currentHeroY + 'px,0)';
+                }
+            }
+            if (statsBg) {
+                var ss = statsBg.closest('.stats-section');
+                if (ss) {
+                    var sr = ss.getBoundingClientRect();
+                    if (sr.bottom > 0 && sr.top < window.innerHeight) {
+                        currentStatsY = lerp(currentStatsY, (sr.top / window.innerHeight) * -50, 0.08);
+                        statsBg.style.transform = 'translate3d(0,' + currentStatsY + 'px,0)';
+                    }
+                }
+            }
+            if (karriereBg) {
+                var ks = karriereBg.closest('.karriere-hero');
+                if (ks) {
+                    var kr = ks.getBoundingClientRect();
+                    if (kr.bottom > 0 && kr.top < window.innerHeight) {
+                        currentKarriereY = lerp(currentKarriereY, (kr.top / window.innerHeight) * -35, 0.08);
+                        karriereBg.style.transform = 'translate3d(0,' + currentKarriereY + 'px,0)';
+                    }
+                }
+            }
+            requestAnimationFrame(updateParallax);
+        }
+        if (window.innerWidth > 768) {
+            requestAnimationFrame(updateParallax);
+        } else {
+            window.addEventListener('scroll', function() {
+                if (scrollProgress) {
+                    var dh = document.documentElement.scrollHeight - window.innerHeight;
+                    if (dh > 0) scrollProgress.style.width = ((window.scrollY / dh) * 100) + '%';
+                }
+            }, { passive: true });
+        }
+
+        /* ===== HEADER SCROLL + SCROLL-TOP + STICKY CTA ===== */
+        (function() {
+            var header = document.querySelector('.site-header');
+            var scrollTopBtn = document.querySelector('.scroll-top');
+            var stickyCta = document.getElementById('stickyCta');
+            var ticking = false;
+            function onScroll() {
+                var scrollY = window.scrollY;
+                header.classList.toggle('scrolled', scrollY > 60);
+                scrollTopBtn.classList.toggle('visible', scrollY > 600);
+                if (stickyCta) stickyCta.classList.toggle('visible', scrollY > 600);
+                ticking = false;
+            }
+            window.addEventListener('scroll', function() {
+                if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+            }, { passive: true });
+        })();
+
+        /* ===== SCROLL REVEAL ===== */
+        var revealObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
                 if (e.isIntersecting) {
                     e.target.classList.add('visible');
                     if (e.target.closest('.stats-section')) animateCounters();
+                    revealObs.unobserve(e.target);
                 }
             });
-        }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObs.observe(el));
+        }, { threshold: 0.05, rootMargin: '50px 0px -20px 0px' });
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function(el) { revealObs.observe(el); });
 
-        // ===== COUNTER ANIMATION =====
-        let countersStarted = false;
+        /* ===== COUNTER ANIMATION WITH DRAMATIC EFFECT ===== */
+        var countersStarted = false;
         function animateCounters() {
             if (countersStarted) return;
             countersStarted = true;
-            document.querySelectorAll('.counter').forEach(counter => {
-                const target = parseInt(counter.dataset.target);
-                const duration = 2500;
-                const start = performance.now();
-                (function update(now) {
-                    const p = Math.min((now - start) / duration, 1);
-                    const eased = 1 - Math.pow(1 - p, 4);
-                    counter.textContent = Math.floor(eased * target).toLocaleString('de-DE');
+            document.querySelectorAll('.counter').forEach(function(counter, index) {
+                var target = parseInt(counter.dataset.target);
+                var duration = 2800;
+                var delay = index * 200;
+                var startTime = performance.now() + delay;
+                function update(now) {
+                    var elapsed = now - startTime;
+                    if (elapsed < 0) { requestAnimationFrame(update); return; }
+                    var p = Math.min(elapsed / duration, 1);
+                    var eased = p < 0.6
+                        ? 1 - Math.pow(1 - (p / 0.6), 5)
+                        : 1 + (Math.sin((p - 0.6) * Math.PI / 0.4) * 0.02 * (1 - p));
+                    counter.textContent = Math.floor(Math.min(eased, 1) * target).toLocaleString('de-DE');
+                    if (p >= 0.95 && !counter.dataset.popped) {
+                        counter.dataset.popped = 'true';
+                        var parent = counter.closest('.stat-number');
+                        if (parent) {
+                            parent.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+                            parent.style.transform = 'scale(1.08)';
+                            setTimeout(function() { parent.style.transform = 'scale(1)'; }, 300);
+                        }
+                    }
                     if (p < 1) requestAnimationFrame(update);
-                })(performance.now());
+                }
+                requestAnimationFrame(update);
             });
         }
 
-        // ===== SMOOTH ANCHOR LINKS =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    document.querySelector('.main-nav').classList.remove('open');
-                }
+        /* ===== SMOOTH ANCHOR LINKS ===== */
+        document.addEventListener('click', function(e) {
+            var anchor = e.target.closest('a[href^="#"]');
+            if (!anchor) return;
+            e.preventDefault();
+            var targetEl = document.querySelector(anchor.getAttribute('href'));
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.querySelector('.main-nav').classList.remove('open');
+                var toggle = document.querySelector('.nav-toggle');
+                if (toggle) toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        /* ===== MAGNETIC BUTTON EFFECT ===== */
+        document.querySelectorAll('.btn-primary, .btn-whatsapp, .nav-cta').forEach(function(btn) {
+            btn.addEventListener('mousemove', function(e) {
+                var rect = this.getBoundingClientRect();
+                var x = e.clientX - rect.left - rect.width / 2;
+                var y = e.clientY - rect.top - rect.height / 2;
+                this.style.transform = 'translate(' + (x * 0.12) + 'px,' + (y * 0.12) + 'px) scale(1.03)';
+            });
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+                var self = this;
+                setTimeout(function() { self.style.transition = ''; }, 400);
             });
         });
 
-        // ===== BEWERBER FORM SUBMISSION =====
+        /* ===== IMAGE ZOOM ON SCROLL ===== */
+        var imgZoomObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                e.target.classList.toggle('in-view', e.isIntersecting);
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.about-image-wrapper, .fachmarkt-image-wrapper').forEach(function(el) {
+            el.classList.add('img-zoom-scroll');
+            imgZoomObs.observe(el);
+        });
+
+        /* ===== HERO CONTENT FADE ON SCROLL ===== */
+        (function() {
+            var heroContent = document.querySelector('.hero-content');
+            if (!heroContent) return;
+            window.addEventListener('scroll', function() {
+                var opacity = Math.max(0, 1 - (window.scrollY / 500));
+                heroContent.style.opacity = opacity;
+                heroContent.style.transform = 'translateY(' + (window.scrollY * 0.12) + 'px)';
+            }, { passive: true });
+        })();
+
+        /* ===== BEWERBER FORM SUBMISSION ===== */
         function handleBewerberSubmit(e) {
             e.preventDefault();
-            const form = e.target;
-            const btn = form.querySelector('.btn-submit');
-            const origText = btn.innerHTML;
+            var form = e.target;
+            var btn = form.querySelector('.btn-submit');
+            var origText = btn.innerHTML;
             btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;"><circle cx="12" cy="12" r="10" opacity="0.25"/><path d="M12 2a10 10 0 019.95 9" opacity="1"/></svg> Wird gesendet...';
             btn.disabled = true;
-            const data = new FormData(form);
-            const v = {};
-            data.forEach((val, key) => v[key] = val);
-            const subject = encodeURIComponent(`Neue Bewerbung: ${v.vorname} ${v.nachname}`);
-            const body = encodeURIComponent(
-                `NEUE BEWERBUNG über Website\n================================\n\n` +
-                `Name: ${v.vorname} ${v.nachname}\nTelefon: ${v.telefon}\n` +
-                `E-Mail: ${v.email_bewerber || 'Nicht angegeben'}\nPosition: ${v.position}\n` +
-                `Erfahrung: ${v.erfahrung || 'Nicht angegeben'}\nQualifikationen: ${v.qualifikation || 'Nicht angegeben'}\n` +
-                `Starttermin: ${v.start || 'Nicht angegeben'}\nNachricht: ${v.nachricht || '–'}\n`
+            var data = new FormData(form);
+            var v = {};
+            data.forEach(function(val, key) { v[key] = val; });
+            var subject = encodeURIComponent('Neue Bewerbung: ' + v.vorname + ' ' + v.nachname);
+            var body = encodeURIComponent(
+                'NEUE BEWERBUNG \u00fcber Website\n================================\n\n' +
+                'Name: ' + v.vorname + ' ' + v.nachname + '\nTelefon: ' + v.telefon + '\n' +
+                'E-Mail: ' + (v.email_bewerber || 'Nicht angegeben') + '\nPosition: ' + v.position + '\n' +
+                'Erfahrung: ' + (v.erfahrung || 'Nicht angegeben') + '\nQualifikationen: ' + (v.qualifikation || 'Nicht angegeben') + '\n' +
+                'Starttermin: ' + (v.start || 'Nicht angegeben') + '\nNachricht: ' + (v.nachricht || '\u2013') + '\n'
             );
-            setTimeout(() => {
-                window.location.href = `mailto:Theo.Haase@web.de?subject=${subject}&body=${body}`;
+            setTimeout(function() {
+                window.location.href = 'mailto:Theo.Haase@web.de?subject=' + subject + '&body=' + body;
                 btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Bewerbung abgeschickt!';
                 btn.style.background = '#25D366';
-                setTimeout(() => { btn.innerHTML = origText; btn.disabled = false; btn.style.background = ''; form.reset(); }, 4000);
+                setTimeout(function() { btn.innerHTML = origText; btn.disabled = false; btn.style.background = ''; form.reset(); }, 4000);
             }, 1200);
         }
 
-        // ===== STICKY CTA =====
-        (function() {
-            const stickyCta = document.getElementById('stickyCta');
-            if (!stickyCta) return;
-            window.addEventListener('scroll', () => {
-                stickyCta.classList.toggle('visible', window.scrollY > 600);
-            });
-        })();
+        /* ===== KEYBOARD: Close nav on Escape ===== */
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                var nav = document.querySelector('.main-nav');
+                var toggle = document.querySelector('.nav-toggle');
+                if (nav.classList.contains('open')) {
+                    nav.classList.remove('open');
+                    if (toggle) {
+                        toggle.setAttribute('aria-expanded', 'false');
+                        toggle.focus();
+                    }
+                }
+            }
+        });
+
+        // ===== KONTAKT FORM SUBMISSION =====
+        function handleKontaktSubmit(e) {
+            e.preventDefault();
+            var form = e.target;
+            var btn = document.getElementById('kontaktSubmitBtn');
+            var origText = btn.innerHTML;
+            btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;"><circle cx="12" cy="12" r="10" opacity="0.25"/><path d="M12 2a10 10 0 019.95 9" opacity="1"/></svg> Wird gesendet...';
+            btn.disabled = true;
+            var data = new FormData(form);
+            var v = {};
+            data.forEach(function(val, key) { v[key] = val; });
+            var subject = encodeURIComponent('Neue Projektanfrage von ' + v.k_name);
+            var body = encodeURIComponent(
+                'NEUE PROJEKTANFRAGE über Website\n================================\n\n' +
+                'Name: ' + v.k_name + '\n' +
+                'Telefon: ' + v.k_telefon + '\n' +
+                'E-Mail: ' + (v.k_email || 'Nicht angegeben') + '\n' +
+                'Gewünschte Leistung: ' + (v.k_leistung || 'Nicht angegeben') + '\n\n' +
+                'Anliegen:\n' + v.k_nachricht + '\n'
+            );
+            setTimeout(function() {
+                window.location.href = 'mailto:Theo.Haase@web.de?subject=' + subject + '&body=' + body;
+                btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Anfrage gesendet!';
+                btn.style.background = '#25D366';
+                setTimeout(function() {
+                    btn.innerHTML = origText;
+                    btn.disabled = false;
+                    btn.style.background = '';
+                    form.reset();
+                }, 4000);
+            }, 1200);
+        }
     </script>
     <style>@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }</style>
 </body>
