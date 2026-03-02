@@ -3,11 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haase Geländerbau GmbH | Aalen-Dewangen</title>
-    <meta name="description" content="Haase Geländerbau GmbH – Ihr Meisterbetrieb für Treppen-, Balkon- und Außengeländer seit über 60 Jahren. Metallbau mit Präzision & Leidenschaft aus Aalen-Dewangen.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Malerbetrieb Haase | Ihr Malermeister in Frankenberg (Eder) seit 1893</title>
+    <meta name="description" content="Malerbetrieb Haase – Dipl. Designer & Malermeister in 4. Generation. Seit &uuml;ber 130 Jahren Malerarbeiten, Fassadengestaltung, Trockenbau & nat&uuml;rliche Baustoffe in Frankenberg (Eder) und Waldeck-Frankenberg.">
+    <meta name="keywords" content="Malerbetrieb Frankenberg, Maler Waldeck-Frankenberg, Malermeister Frankenberg Eder, Malerbetrieb Haase, Fassadengestaltung, Trockenbau, Wandmalerei, natürliche Baustoffe, Lehm, Kalk, Haaseweiss">
+    <meta property="og:title" content="Malerbetrieb Haase | Seit über 130 Jahren – Frankenberg (Eder)">
+    <meta property="og:description" content="Dipl. Designer & Malermeister in 4. Generation. Malerarbeiten, Fassadengestaltung, Trockenbau, Wandmalerei & natürliche Baustoffe.">
+    <meta property="og:type" content="website">
+    <!-- Fonts lokal gehostet (DSGVO-konform, kein Google CDN) -->
+    <style>
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url('fonts/inter-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Bebas Neue';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('fonts/bebas-neue-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'JetBrains Mono';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('fonts/jetbrains-mono-regular.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'JetBrains Mono';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('fonts/jetbrains-mono-700.woff2') format('woff2');
+        }
+    </style>
     <style>
         /* ===== RESET & VARIABLES ===== */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -19,10 +51,10 @@
             --bg-card: #141c2b;
             --bg-elevated: #1a2436;
 
-            /* Haase Brand – Orange/Bernstein (Metallbau/Schweißen) */
-            --accent: #ec870e;
-            --accent-hover: #ffa826;
-            --accent-glow: rgba(236, 135, 14, 0.25);
+            /* Haase Brand – Warmes Gold/Ocker (Natürliche Baustoffe, Tradition) */
+            --accent: #c47a3a;
+            --accent-hover: #d99250;
+            --accent-glow: rgba(196, 122, 58, 0.25);
 
             /* Text */
             --text-primary: #f0f2f5;
@@ -71,7 +103,7 @@
         }
         .cursor.hover {
             width: 50px; height: 50px;
-            background: rgba(236, 135, 14, 0.15);
+            background: rgba(196, 122, 58, 0.15);
             border-color: var(--accent-hover);
         }
         .cursor-dot {
@@ -90,10 +122,12 @@
             transition: opacity 0.8s ease, visibility 0.8s ease;
         }
         .preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        .preloader-logo { height: 60px; opacity: 0; animation: preloaderFade 1s ease forwards; }
-        .text-logo { font-family: "Bebas Neue", sans-serif; font-size: 28px; color: var(--accent); letter-spacing: 0.1em; text-decoration: none; }
-        .text-logo-nav { font-family: "Bebas Neue", sans-serif; font-size: 22px; color: var(--accent); letter-spacing: 0.1em; text-decoration: none; }
-        .text-logo-footer { height: auto !important; font-family: "Bebas Neue", sans-serif; font-size: 24px; color: var(--accent); letter-spacing: 0.1em; }
+        .preloader-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem; color: var(--accent);
+            letter-spacing: 0.15em;
+            opacity: 0; animation: preloaderFade 1s ease forwards;
+        }
         .preloader-bar { width: 200px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
         .preloader-bar::after {
             content: ''; display: block; width: 100%; height: 100%;
@@ -118,8 +152,13 @@
             -webkit-backdrop-filter: blur(20px);
             box-shadow: 0 1px 0 var(--glass-border);
         }
-        .site-logo img { height: 48px; width: auto; transition: transform 0.3s ease; }
-        .site-logo:hover img { transform: scale(1.05); }
+        .site-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem; color: var(--accent);
+            letter-spacing: 0.12em;
+            transition: transform 0.3s ease;
+        }
+        .site-logo:hover { transform: scale(1.05); }
 
         .main-nav { display: flex; align-items: center; gap: 0; }
         .main-nav a {
@@ -222,7 +261,7 @@
         .hero-title .accent { color: var(--accent); }
         .hero-subtitle {
             font-size: var(--fs-body); color: var(--text-secondary);
-            max-width: 520px; line-height: 1.8; font-weight: 300;
+            max-width: 560px; line-height: 1.8; font-weight: 300;
             margin-bottom: 40px;
         }
         .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -326,7 +365,7 @@
         }
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(236, 135, 14, 0.15);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(196, 122, 58, 0.15);
         }
         .service-card-img {
             position: absolute; inset: 0;
@@ -463,7 +502,7 @@
             margin: 12px auto 0;
         }
 
-        /* ===== QUALITAET SECTION ===== */
+        /* ===== FACHMARKT / QUALITÄT SECTION ===== */
         .tracking-grid {
             display: grid; grid-template-columns: 1fr 1fr;
             gap: clamp(40px, 6vw, 100px); align-items: center;
@@ -480,13 +519,13 @@
             transition: all 0.3s ease;
         }
         .tracking-feature:hover {
-            border-color: rgba(236, 135, 14, 0.2);
-            background: rgba(236, 135, 14, 0.05);
+            border-color: rgba(196, 122, 58, 0.2);
+            background: rgba(196, 122, 58, 0.05);
         }
         .tracking-icon {
             width: 42px; height: 42px; flex-shrink: 0;
             display: flex; align-items: center; justify-content: center;
-            background: rgba(236, 135, 14, 0.1);
+            background: rgba(196, 122, 58, 0.1);
         }
         .tracking-icon svg {
             width: 20px; height: 20px; stroke: var(--accent);
@@ -507,10 +546,10 @@
         }
         .tracking-image-wrapper::before {
             content: ''; position: absolute; inset: 0; z-index: 1;
-            background: linear-gradient(135deg, rgba(236,135,14,0.1) 0%, transparent 50%);
+            background: linear-gradient(135deg, rgba(196,122,58,0.1) 0%, transparent 50%);
         }
 
-        /* ===== KARRIERE RECRUITING HERO ===== */
+        /* ===== KARRIERE – RECRUITING HERO ===== */
         .section-fahrer {
             position: relative; overflow: hidden;
             background: var(--bg-primary);
@@ -535,8 +574,8 @@
         }
         .fahrer-badge {
             display: inline-flex; align-items: center; gap: 8px;
-            padding: 8px 18px; background: rgba(236,135,14,0.15);
-            border: 1px solid rgba(236,135,14,0.3);
+            padding: 8px 18px; background: rgba(196,122,58,0.15);
+            border: 1px solid rgba(196,122,58,0.3);
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px; color: var(--accent);
             letter-spacing: 0.15em; text-transform: uppercase;
@@ -598,14 +637,14 @@
             padding: 30px 25px; transition: all 0.4s ease;
         }
         .benefit-card:hover {
-            border-color: rgba(236,135,14,0.25);
-            background: rgba(236,135,14,0.04);
+            border-color: rgba(196,122,58,0.25);
+            background: rgba(196,122,58,0.04);
             transform: translateY(-4px);
         }
         .benefit-card-icon {
             width: 48px; height: 48px; margin-bottom: 18px;
             display: flex; align-items: center; justify-content: center;
-            background: rgba(236,135,14,0.1);
+            background: rgba(196,122,58,0.1);
         }
         .benefit-card-icon svg {
             width: 22px; height: 22px; stroke: var(--accent);
@@ -732,6 +771,9 @@
             background: transparent; color: var(--text-primary);
             border: 1px solid var(--glass-border);
         }
+        .sticky-cta-whatsapp {
+            background: #25D366; color: #fff;
+        }
 
         .btn-primary {
             display: inline-flex; align-items: center; gap: 10px;
@@ -826,7 +868,11 @@
             display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
             gap: 50px; margin-bottom: 60px;
         }
-        .footer-brand img { height: 45px; margin-bottom: 20px; }
+        .footer-brand-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem; color: var(--accent);
+            letter-spacing: 0.12em; margin-bottom: 20px;
+        }
         .footer-brand p {
             font-size: 13px; color: var(--text-muted);
             line-height: 1.8; max-width: 280px;
@@ -935,7 +981,7 @@
 
     <!-- PRELOADER -->
     <div class="preloader">
-        <div class="preloader-logo text-logo">HAASE</div>
+        <div class="preloader-logo">HAASE</div>
         <div class="preloader-bar"></div>
     </div>
 
@@ -945,15 +991,13 @@
 
     <!-- HEADER -->
     <header class="site-header">
-        <a href="#" class="site-logo">
-            <span class="text-logo-nav">HAASE</span>
-        </a>
+        <a href="#" class="site-logo">MALERBETRIEB HAASE</a>
         <nav class="main-nav">
-            <a href="#about">Unternehmen</a>
             <a href="#leistungen">Leistungen</a>
-            <a href="#qualitaet">Qualität</a>
+            <a href="#about">Über uns</a>
+            <a href="#fachmarkt">Fachmarkt</a>
             <a href="#karriere" class="nav-highlight">Karriere</a>
-            <a href="#kontakt" class="nav-cta">Kontakt</a>
+            <a href="#kontakt" class="nav-cta">Angebot anfragen</a>
         </nav>
         <div class="nav-toggle" onclick="document.querySelector('.main-nav').classList.toggle('open')">
             <span></span><span></span><span></span>
@@ -963,24 +1007,24 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-bg">
-            <img src="https://images.pexels.com/photos/2381463/pexels-photo-2381463.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Metallarbeiter beim Schweißen – Haase Geländerbau">
+            <img src="https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Professionelle Malerarbeiten – Malerbetrieb Haase, Frankenberg (Eder)">
         </div>
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <div class="hero-eyebrow reveal">Seit über 60 Jahren — Meisterbetrieb</div>
+            <div class="hero-eyebrow reveal">Meisterbetrieb seit 1893 — 4. Generation</div>
             <h1 class="hero-title reveal stagger-1">
-                Geländerbau mit<br><span class="accent">Präzision.</span>
+                Malerbetrieb Haase<br><span class="accent">seit über 130 Jahren.</span>
             </h1>
             <p class="hero-subtitle reveal stagger-2">
-                Haase Geländerbau GmbH — Seit über 60 Jahren Ihr Partner für Treppen-, Balkon- und Außengeländer in der Region Ostalb.
+                Dipl. Designer & Malermeister in 4. Generation. Malerarbeiten, Fassadengestaltung, Wandmalerei & natürliche Baustoffe — Ihr Malerbetrieb in Frankenberg (Eder).
             </p>
             <div class="hero-actions reveal stagger-3">
-                <a href="#leistungen" class="btn-hero btn-hero-fill">
-                    Unsere Leistungen <span class="btn-arrow">&rarr;</span>
+                <a href="#kontakt" class="btn-hero btn-hero-fill">
+                    Kostenlos beraten lassen <span class="btn-arrow">&rarr;</span>
                 </a>
-                <a href="#kontakt" class="btn-hero btn-hero-outline">
-                    Kontakt aufnehmen
+                <a href="#leistungen" class="btn-hero btn-hero-outline">
+                    Unsere Leistungen
                 </a>
             </div>
         </div>
@@ -1000,23 +1044,27 @@
             </div>
             <div class="trust-item">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                Seit über 60 Jahren
+                Seit über 130 Jahren
             </div>
             <div class="trust-item">
                 <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-                30+ Mitarbeiter
+                4. Generation
             </div>
             <div class="trust-item">
                 <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                5.000+ Projekte
+                Dipl. Designer & Malermeister
             </div>
             <div class="trust-item">
                 <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Standort Aalen-Dewangen
+                Frankenberg (Eder)
             </div>
             <div class="trust-item">
-                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                100% Kundenzufriedenheit
+                <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                Natürliche Baustoffe
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Ausbildungsbetrieb
             </div>
             <!-- Duplicate for seamless loop -->
             <div class="trust-item">
@@ -1025,23 +1073,27 @@
             </div>
             <div class="trust-item">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                Seit über 60 Jahren
+                Seit über 130 Jahren
             </div>
             <div class="trust-item">
                 <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-                30+ Mitarbeiter
+                4. Generation
             </div>
             <div class="trust-item">
                 <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                5.000+ Projekte
+                Dipl. Designer & Malermeister
             </div>
             <div class="trust-item">
                 <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Standort Aalen-Dewangen
+                Frankenberg (Eder)
             </div>
             <div class="trust-item">
-                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                100% Kundenzufriedenheit
+                <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                Natürliche Baustoffe
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Ausbildungsbetrieb
             </div>
         </div>
     </div>
@@ -1049,46 +1101,82 @@
     <!-- LEISTUNGEN -->
     <section class="section section-dark" id="leistungen">
         <div class="container">
-            <div class="section-eyebrow reveal">Was wir fertigen</div>
-            <h2 class="section-title reveal stagger-1">Unsere Leistungen</h2>
+            <div class="section-eyebrow reveal">Unsere Leistungen</div>
+            <h2 class="section-title reveal stagger-1">Farbe, Form &<br>Handwerkskunst.</h2>
             <p class="section-desc reveal stagger-2">
-                Von Treppengeländern über Balkongeländer bis hin zu Sonderkonstruktionen — wir fertigen individuelle Metallbaulösungen nach Maß.
+                Von der Fassadengestaltung bis zur kreativen Wandmalerei — als Meisterbetrieb in 4. Generation bieten wir Ihnen das volle Spektrum professioneller Malerarbeiten mit natürlichen Baustoffen.
             </p>
 
             <div class="services-grid">
-                <a href="#" class="service-card reveal stagger-1">
+                <a href="#kontakt" class="service-card reveal stagger-1">
                     <div class="service-card-img">
-                        <img src="https://images.pexels.com/photos/1078884/pexels-photo-1078884.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Treppengeländer aus Metall – Haase Geländerbau">
+                        <img src="https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Malerarbeiten Innen & Außen">
                     </div>
                     <div class="service-card-arrow">&rarr;</div>
                     <div class="service-card-content">
                         <div class="service-number">01</div>
-                        <div class="service-card-title">Treppengeländer</div>
-                        <div class="service-card-desc">Innen- und Außentreppengeländer aus Edelstahl, Stahl oder Aluminium — individuell gefertigt nach Ihren Wünschen.</div>
+                        <div class="service-card-title">Malerarbeiten</div>
+                        <div class="service-card-desc">Professionelle Innen- und Außenanstriche, Wand- und Deckengestaltung mit hochwertigen Materialien und handwerklicher Perfektion.</div>
                     </div>
                 </a>
 
-                <a href="#" class="service-card reveal stagger-2">
+                <a href="#kontakt" class="service-card reveal stagger-2">
                     <div class="service-card-img">
-                        <img src="https://images.pexels.com/photos/159358/construction-site-build-construction-work-159358.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Balkongeländer und Außengeländer – Haase Geländerbau">
+                        <img src="https://images.pexels.com/photos/5691658/pexels-photo-5691658.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Fassadengestaltung & Verputz">
                     </div>
                     <div class="service-card-arrow">&rarr;</div>
                     <div class="service-card-content">
                         <div class="service-number">02</div>
-                        <div class="service-card-title">Balkon- & Außengeländer</div>
-                        <div class="service-card-desc">Robuste und elegante Balkongeländer, Terrassengeländer und Brüstungen für Neubau und Sanierung.</div>
+                        <div class="service-card-title">Fassade & Verputz</div>
+                        <div class="service-card-desc">Fassadenanstriche, Fassadenverputze und Wärmedämmung. Schützen und verschönern Sie Ihr Gebäude nachhaltig.</div>
                     </div>
                 </a>
 
-                <a href="#" class="service-card reveal stagger-3">
+                <a href="#kontakt" class="service-card reveal stagger-3">
                     <div class="service-card-img">
-                        <img src="https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Vordächer, Carports und Sonderkonstruktionen – Haase Geländerbau">
+                        <img src="https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wandmalerei & Dekorationstechniken">
                     </div>
                     <div class="service-card-arrow">&rarr;</div>
                     <div class="service-card-content">
                         <div class="service-number">03</div>
-                        <div class="service-card-title">Vordächer & Carports</div>
-                        <div class="service-card-desc">Maßgefertigte Vordächer, Carports und Sonderkonstruktionen aus Stahl und Aluminium für jeden Anspruch.</div>
+                        <div class="service-card-title">Wandmalerei & Dekor</div>
+                        <div class="service-card-desc">Individuelle Wandmalereien und kreative Dekorationstechniken — der Dipl. Designer gestaltet Ihre Räume einzigartig.</div>
+                    </div>
+                </a>
+
+                <a href="#kontakt" class="service-card reveal stagger-1">
+                    <div class="service-card-img">
+                        <img src="https://images.pexels.com/photos/5582597/pexels-photo-5582597.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Trockenbauarbeiten">
+                    </div>
+                    <div class="service-card-arrow">&rarr;</div>
+                    <div class="service-card-content">
+                        <div class="service-number">04</div>
+                        <div class="service-card-title">Trockenbau</div>
+                        <div class="service-card-desc">Professioneller Trockenbau für Wände, Decken und Dachausbau. Raumgestaltung und Akustikoptimierung nach Maß.</div>
+                    </div>
+                </a>
+
+                <a href="#kontakt" class="service-card reveal stagger-2">
+                    <div class="service-card-img">
+                        <img src="https://images.pexels.com/photos/4946515/pexels-photo-4946515.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Lackierarbeiten">
+                    </div>
+                    <div class="service-card-arrow">&rarr;</div>
+                    <div class="service-card-content">
+                        <div class="service-number">05</div>
+                        <div class="service-card-title">Lackierarbeiten</div>
+                        <div class="service-card-desc">Fachgerechte Lackierung von Türen, Fenstern, Holz- und Metalloberflächen. Langlebig und makellos verarbeitet.</div>
+                    </div>
+                </a>
+
+                <a href="#kontakt" class="service-card reveal stagger-3">
+                    <div class="service-card-img">
+                        <img src="https://images.pexels.com/photos/6444256/pexels-photo-6444256.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bodenbelagsarbeiten">
+                    </div>
+                    <div class="service-card-arrow">&rarr;</div>
+                    <div class="service-card-content">
+                        <div class="service-number">06</div>
+                        <div class="service-card-title">Bodenbeläge</div>
+                        <div class="service-card-desc">Verlegung und Gestaltung von Bodenbelägen aller Art. Vom Wohnzimmer bis zum Gewerbeobjekt — fachkundig verlegt.</div>
                     </div>
                 </a>
             </div>
@@ -1100,32 +1188,36 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-image-wrapper reveal-left">
-                    <img src="https://images.pexels.com/photos/5691631/pexels-photo-5691631.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Team Haase Geländerbau – Handwerk mit Tradition">
+                    <img src="https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Malerbetrieb Haase – Über 130 Jahre Handwerkstradition in Frankenberg (Eder)">
                 </div>
                 <div class="about-text">
                     <div class="section-eyebrow reveal-right">Über uns</div>
-                    <h2 class="section-title reveal-right stagger-1">Tradition trifft<br>Handwerk.</h2>
+                    <h2 class="section-title reveal-right stagger-1">130 Jahre Tradition.<br>4. Generation.</h2>
                     <p class="reveal-right stagger-2">
-                        Vor über 60 Jahren als Schlosserei gegründet, hat sich die Haase Geländerbau GmbH zu einem der führenden Metallbaubetriebe in der Region Ostalb entwickelt. Mit über 30 qualifizierten Mitarbeitern fertigen wir individuelle Geländerlösungen für Privat- und Geschäftskunden.
+                        Gegründet im Jahr 1893, steht der Malerbetrieb Haase seit über 130 Jahren für erstklassige Handwerksqualität in Frankenberg (Eder) und der Region Waldeck-Frankenberg. Heute führt Dirk Theo Haase den Betrieb in 4. Generation als Dipl. Designer und Malermeister.
                     </p>
                     <p class="reveal-right stagger-3">
-                        Heute, unter der Leitung von Geschäftsführer Steffen Haase, verbinden wir traditionelles Handwerk mit modernster Fertigungstechnik. Am Standort Aalen-Dewangen fertigen wir Treppengeländer, Balkongeländer, Vordächer, Carports und Sonderkonstruktionen in höchster Qualität.
+                        Was uns besonders macht: Die Verbindung von designerischem Gespür und meisterlichem Handwerk. Wir arbeiten mit natürlichen Baustoffen wie Lehm, Kalk und mineralischen Bindemitteln — für gesundes Wohnen und nachhaltige Ergebnisse. Mit unserem eingespielten Team und als Ausbildungsbetrieb geben wir unser Wissen an die nächste Generation weiter.
                     </p>
                     <div class="about-highlight reveal-right stagger-3">
-                        „Präzision, Qualität und Zuverlässigkeit" — das ist unser Versprechen seit über 60 Jahren.
+                        „Handwerkskunst trifft Design — seit über 130 Jahren in Familientradition."
                     </div>
                     <div class="about-badges reveal-right stagger-4">
+                        <div class="about-badge">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            130+ Jahre
+                        </div>
                         <div class="about-badge">
                             <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                             Meisterbetrieb
                         </div>
                         <div class="about-badge">
-                            <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
-                            Seit über 60 Jahren
+                            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                            Ausbildungsbetrieb
                         </div>
                         <div class="about-badge">
-                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                            Familienunternehmen
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Natürliche Baustoffe
                         </div>
                     </div>
                 </div>
@@ -1136,33 +1228,33 @@
     <!-- KENNZAHLEN -->
     <section class="section-stats" id="stats">
         <div class="stats-bg">
-            <img src="https://images.pexels.com/photos/2381463/pexels-photo-2381463.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Schweißarbeiten bei Haase Geländerbau">
+            <img src="https://images.pexels.com/photos/5582597/pexels-photo-5582597.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Professionelle Malerarbeiten">
             <div class="stats-overlay"></div>
         </div>
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item reveal stagger-1">
                     <div class="stat-number">
-                        <span data-target="60" class="counter">0</span>
+                        <span data-target="130" class="counter">0</span>
                         <span class="stat-suffix">+</span>
                     </div>
-                    <div class="stat-label">Jahre Erfahrung</div>
+                    <div class="stat-label">Jahre Tradition</div>
                     <div class="stat-divider"></div>
                 </div>
                 <div class="stat-item reveal stagger-2">
                     <div class="stat-number">
-                        <span data-target="30" class="counter">0</span>
-                        <span class="stat-suffix">+</span>
+                        <span data-target="4" class="counter">0</span>
+                        <span class="stat-suffix">.</span>
                     </div>
-                    <div class="stat-label">Mitarbeiter</div>
+                    <div class="stat-label">Generation</div>
                     <div class="stat-divider"></div>
                 </div>
                 <div class="stat-item reveal stagger-3">
                     <div class="stat-number">
-                        <span data-target="5000" class="counter">0</span>
+                        <span data-target="1000" class="counter">0</span>
                         <span class="stat-suffix">+</span>
                     </div>
-                    <div class="stat-label">Realisierte Projekte</div>
+                    <div class="stat-label">Zufriedene Kunden</div>
                     <div class="stat-divider"></div>
                 </div>
                 <div class="stat-item reveal stagger-4">
@@ -1170,22 +1262,22 @@
                         <span data-target="100" class="counter">0</span>
                         <span class="stat-suffix">%</span>
                     </div>
-                    <div class="stat-label">Kundenzufriedenheit</div>
+                    <div class="stat-label">Meisterqualität</div>
                     <div class="stat-divider"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- QUALITÄT & SERVICE -->
-    <section class="section section-dark" id="qualitaet">
+    <!-- FACHMARKT HAASEWEISS -->
+    <section class="section section-dark" id="fachmarkt">
         <div class="container">
             <div class="tracking-grid">
                 <div>
-                    <div class="section-eyebrow reveal">Qualität</div>
-                    <h2 class="section-title reveal stagger-1">Perfektion<br>im Detail.</h2>
+                    <div class="section-eyebrow reveal">Fachmarkt Haaseweiss</div>
+                    <h2 class="section-title reveal stagger-1">Ihr Fachmarkt für<br>Farben & Baustoffe.</h2>
                     <p class="section-desc reveal stagger-2">
-                        Jedes Geländer verlässt unsere Werkstatt erst, wenn es unseren höchsten Qualitätsansprüchen genügt. Von der Beratung über die Fertigung bis zur Montage — alles aus einer Hand.
+                        In unserem Fachmarkt „Haaseweiss" in der Auestraße 32 finden Sie alles rund um Farben, Lacke und natürliche Baustoffe — inklusive persönlicher Fachberatung und individuellem Farbmischservice.
                     </p>
                     <div class="tracking-features">
                         <div class="tracking-feature reveal stagger-2">
@@ -1193,64 +1285,66 @@
                                 <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                             </div>
                             <div>
-                                <h4>Individuelle Beratung</h4>
-                                <p>Persönliche Beratung vor Ort mit Aufmaß und Planung nach Ihren Wünschen</p>
+                                <h4>Natürliche Baustoffe</h4>
+                                <p>Lehm, Kalk und mineralische Bindemittel für gesundes und nachhaltiges Wohnen</p>
                             </div>
                         </div>
                         <div class="tracking-feature reveal stagger-3">
                             <div class="tracking-icon">
-                                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                             </div>
                             <div>
-                                <h4>Eigene Fertigung</h4>
-                                <p>Komplette Herstellung in unserer Werkstatt in Aalen-Dewangen</p>
+                                <h4>Farbmischservice</h4>
+                                <p>Individuelle Farbtöne nach Ihren Wünschen — professionell gemischt vor Ort</p>
                             </div>
                         </div>
                         <div class="tracking-feature reveal stagger-4">
                             <div class="tracking-icon">
-                                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
                             </div>
                             <div>
-                                <h4>Fachgerechte Montage</h4>
-                                <p>Professionelle Montage durch unsere erfahrenen Metallbauer vor Ort</p>
+                                <h4>Persönliche Fachberatung</h4>
+                                <p>Kompetente Beratung durch den Malermeister und Dipl. Designer — direkt im Fachmarkt</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="tracking-image-wrapper reveal-right">
-                    <img src="https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Werkstatt Haase Geländerbau – Präzisionsfertigung">
+                    <img src="https://images.pexels.com/photos/5691658/pexels-photo-5691658.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Fachmarkt Haaseweiss – Farben & Baustoffe in Frankenberg">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- KARRIERE / RECRUITING -->
+    <!-- MITARBEITER RECRUITING – HERO -->
     <section class="section-fahrer" id="karriere">
         <div class="fahrer-hero">
             <div class="fahrer-hero-bg">
-                <img src="https://images.pexels.com/photos/5691631/pexels-photo-5691631.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Team Haase Geländerbau – Karriere im Metallbau">
+                <img src="https://images.pexels.com/photos/4946515/pexels-photo-4946515.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Maler und Lackierer bei der Arbeit – Malerbetrieb Haase">
             </div>
             <div class="fahrer-hero-overlay"></div>
             <div class="fahrer-hero-content">
-                <div class="fahrer-badge reveal">
-                    <span class="fahrer-badge-dot"></span>
-                    Wir suchen Verstärkung
-                </div>
-                <h2 class="fahrer-hero-title reveal stagger-1">
-                    Werde Teil des<br><span class="accent">Haase Teams.</span>
-                </h2>
-                <p class="fahrer-hero-subtitle reveal stagger-2">
-                    Kein anonymer Konzern — ein echter Meisterbetrieb mit über 60 Jahren Tradition. Bei uns bist du nicht nur eine Nummer, du bist Teil der Familie. Bewirb dich in 60 Sekunden, ganz ohne Lebenslauf.
-                </p>
-                <div class="fahrer-quick-actions reveal stagger-3">
-                    <a href="https://wa.me/4973669610?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Stelle%20bei%20Haase%20Gel%C3%A4nderbau." class="btn-whatsapp" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        WhatsApp schreiben
-                    </a>
-                    <a href="tel:+4973669610" class="btn-call">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-                        Jetzt anrufen
-                    </a>
+                <div class="container">
+                    <div class="fahrer-badge reveal">
+                        <span class="fahrer-badge-dot"></span>
+                        Wir suchen Verstärkung
+                    </div>
+                    <h2 class="fahrer-hero-title reveal stagger-1">
+                        Werde Teil unseres<br><span class="accent">Teams in Frankenberg.</span>
+                    </h2>
+                    <p class="fahrer-hero-subtitle reveal stagger-2">
+                        Kein anonymer Großbetrieb — ein echter Familienhandwerksbetrieb seit 1893. Bei uns bist du Teil des Teams, nicht nur eine Nummer. Als Ausbildungsbetrieb bilden wir die nächste Generation aus.
+                    </p>
+                    <div class="fahrer-quick-actions reveal stagger-3">
+                        <a href="https://wa.me/4915111638090?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Stelle%20beim%20Malerbetrieb%20Haase." class="btn-whatsapp" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.614-1.465A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.115 0-4.09-.57-5.793-1.564l-.416-.248-4.308 1.37 1.396-4.176-.27-.43A9.697 9.697 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+                            WhatsApp schreiben
+                        </a>
+                        <a href="tel:+496451240353" class="btn-call">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                            Jetzt anrufen
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1258,55 +1352,55 @@
         <!-- BENEFITS GRID -->
         <div class="container">
             <div class="section-eyebrow reveal" style="text-align:center; margin-top: 5rem;">Deine Vorteile</div>
-            <h2 class="section-title reveal stagger-1" style="text-align:center;">Warum Metallbauer<br>zu Haase wechseln.</h2>
+            <h2 class="section-title reveal stagger-1" style="text-align:center;">Warum du zu Haase<br>wechseln solltest.</h2>
 
             <div class="benefits-grid">
                 <div class="benefit-card reveal stagger-1">
                     <div class="benefit-card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M16 8l-4 4-4-4M8 16l4-4 4 4"/></svg>
                     </div>
-                    <h4 class="benefit-title">Top-Gehalt</h4>
-                    <p class="benefit-desc">Übertarifliche Bezahlung, Weihnachts- und Urlaubsgeld. Pünktlich auf dem Konto, garantiert.</p>
+                    <h4 class="benefit-title">Faire Bezahlung</h4>
+                    <p class="benefit-desc">Leistungsgerechte Vergütung und pünktliche Bezahlung. Bei uns zählt deine Arbeit — und das spiegelt sich wider.</p>
                 </div>
 
                 <div class="benefit-card reveal stagger-2">
                     <div class="benefit-card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                     </div>
-                    <h4 class="benefit-title">Keine Montage-Reisen</h4>
-                    <p class="benefit-desc">Regionale Projekte in der Ostalb-Region. Abends zuhause bei deiner Familie — keine wochenlangen Baustellen.</p>
+                    <h4 class="benefit-title">Regionale Projekte</h4>
+                    <p class="benefit-desc">Baustellen in und um Frankenberg (Eder). Abends zuhause bei deiner Familie — keine weiten Anfahrten.</p>
                 </div>
 
                 <div class="benefit-card reveal stagger-3">
                     <div class="benefit-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
-                    <h4 class="benefit-title">Moderne Werkstatt</h4>
-                    <p class="benefit-desc">Neueste CNC-Technik, moderne Schweißgeräte und eine top ausgestattete Werkstatt in Aalen-Dewangen.</p>
+                    <h4 class="benefit-title">130+ Jahre Tradition</h4>
+                    <p class="benefit-desc">Arbeite in einem Traditionsbetrieb der 4. Generation. Echtes Handwerk mit Geschichte und Zukunft.</p>
                 </div>
 
                 <div class="benefit-card reveal stagger-1">
                     <div class="benefit-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
                     </div>
-                    <h4 class="benefit-title">30 Urlaubstage</h4>
-                    <p class="benefit-desc">Überdurchschnittlicher Urlaub, planbare Arbeitszeiten und Rücksicht auf deine persönlichen Wünsche.</p>
+                    <h4 class="benefit-title">Ausbildung & Weiterbildung</h4>
+                    <p class="benefit-desc">Anerkannter Ausbildungsbetrieb. Wir bilden aus und fördern Weiterbildung — vom Gesellen bis zum Meister.</p>
                 </div>
 
                 <div class="benefit-card reveal stagger-2">
                     <div class="benefit-card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
                     </div>
-                    <h4 class="benefit-title">Echtes Team</h4>
-                    <p class="benefit-desc">Kein Nummern-System — der Chef kennt deinen Namen. Flache Hierarchien, offene Türen, echte Wertschätzung.</p>
+                    <h4 class="benefit-title">Familiäres Team</h4>
+                    <p class="benefit-desc">Ein eingespieltes Team mit echtem Zusammenhalt. Der Chef kennt deinen Namen. Flache Hierarchien und Wertschätzung.</p>
                 </div>
 
                 <div class="benefit-card reveal stagger-3">
                     <div class="benefit-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                     </div>
-                    <h4 class="benefit-title">Weiterbildung</h4>
-                    <p class="benefit-desc">Schweißerschein, Meisterkurs, CAD-Schulungen — wir investieren in dich. Alle Kosten übernehmen wir.</p>
+                    <h4 class="benefit-title">Natürliche Materialien</h4>
+                    <p class="benefit-desc">Arbeite mit hochwertigen natürlichen Baustoffen wie Lehm und Kalk. Handwerk, auf das du stolz sein kannst.</p>
                 </div>
             </div>
         </div>
@@ -1342,11 +1436,11 @@
                                 <label for="position">Gewünschte Position *</label>
                                 <select id="position" name="position" required>
                                     <option value="" disabled selected>Bitte wählen</option>
-                                    <option value="metallbauer">Metallbauer (m/w/d)</option>
-                                    <option value="schweisser">Schweißer (m/w/d)</option>
-                                    <option value="konstrukteur">Konstrukteur / Technischer Zeichner (m/w/d)</option>
-                                    <option value="auszubildender">Auszubildender Metallbauer (m/w/d)</option>
-                                    <option value="monteur">Monteur (m/w/d)</option>
+                                    <option value="geselle">Maler-Geselle (m/w/d)</option>
+                                    <option value="vorarbeiter">Vorarbeiter (m/w/d)</option>
+                                    <option value="auszubildender">Auszubildende/r (m/w/d)</option>
+                                    <option value="trockenbauer">Trockenbauer (m/w/d)</option>
+                                    <option value="lackierer">Lackierer (m/w/d)</option>
                                     <option value="andere">Andere Position</option>
                                 </select>
                             </div>
@@ -1365,33 +1459,25 @@
                                 </select>
                             </div>
                             <div class="form-field">
-                                <label for="qualifikation">Qualifikation</label>
-                                <select id="qualifikation" name="qualifikation">
-                                    <option value="" disabled selected>Bitte wählen</option>
-                                    <option value="gesellenbrief">Gesellenbrief Metallbau</option>
-                                    <option value="meister">Meisterbrief</option>
-                                    <option value="schweisszertifikat">Schweißzertifikat</option>
-                                    <option value="techniker">Staatl. gepr. Techniker</option>
-                                    <option value="ohne">Ohne Ausbildung / Quereinsteiger</option>
-                                    <option value="andere">Andere Qualifikation</option>
-                                </select>
+                                <label for="start">Frühester Starttermin</label>
+                                <input type="text" id="start" name="start" placeholder="z.B. sofort, ab 01.04.">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-field">
-                                <label for="start">Frühester Starttermin</label>
-                                <input type="text" id="start" name="start" placeholder="z.B. sofort, ab 01.04.">
-                            </div>
-                            <div class="form-field">
                                 <label for="email_bewerber">E-Mail (optional)</label>
                                 <input type="email" id="email_bewerber" name="email_bewerber" placeholder="max@beispiel.de">
+                            </div>
+                            <div class="form-field">
+                                <label for="qualifikation">Qualifikationen</label>
+                                <input type="text" id="qualifikation" name="qualifikation" placeholder="z.B. Gesellenbrief, Meistertitel">
                             </div>
                         </div>
 
                         <div class="form-field" style="grid-column: 1 / -1;">
                             <label for="nachricht">Möchtest du uns noch etwas sagen?</label>
-                            <textarea id="nachricht" name="nachricht" rows="3" placeholder="z.B. besondere Qualifikationen, Schweißerprüfungen, Wünsche..."></textarea>
+                            <textarea id="nachricht" name="nachricht" rows="3" placeholder="z.B. besondere Fähigkeiten, Spezialisierungen, Wünsche..."></textarea>
                         </div>
 
                         <button type="submit" class="btn-submit">
@@ -1424,26 +1510,26 @@
                             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                             <div>
                                 <strong>Schnuppertag möglich</strong>
-                                <p>Lern uns und unsere Werkstatt kennen, bevor du dich entscheidest.</p>
+                                <p>Lern uns und unsere Baustellen kennen, bevor du dich entscheidest.</p>
                             </div>
                         </div>
                         <div class="form-promise-item">
                             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                             <div>
                                 <strong>Dein direkter Ansprechpartner</strong>
-                                <p>Steffen Haase — Geschäftsführer und Ansprechpartner für alle neuen Mitarbeiter.</p>
+                                <p>Dirk Theo Haase — Malermeister & Inhaber, persönlich und direkt erreichbar.</p>
                             </div>
                         </div>
 
                         <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);">
                             <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 1rem;">Oder direkt Kontakt aufnehmen:</p>
-                            <a href="https://wa.me/4973669610?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Stelle%20bei%20Haase%20Gel%C3%A4nderbau." class="btn-whatsapp" target="_blank" rel="noopener" style="width: 100%; justify-content: center; margin-bottom: 0.75rem;">
-                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                                WhatsApp schreiben
+                            <a href="mailto:Theo.Haase@web.de?subject=Bewerbung%20als%20Maler%2FLackierer" class="btn-call" style="width: 100%; justify-content: center; margin-bottom: 0.75rem;">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                E-Mail schreiben
                             </a>
-                            <a href="tel:+497366961000" class="btn-call" style="width: 100%; justify-content: center;">
+                            <a href="tel:+496451240353" class="btn-call" style="width: 100%; justify-content: center;">
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-                                07366 / 9610-0
+                                06451 240353
                             </a>
                         </div>
                     </div>
@@ -1454,13 +1540,13 @@
 
     <!-- STICKY MOBILE CTA -->
     <div class="sticky-cta" id="stickyCta">
-        <a href="#bewerberForm" class="sticky-cta-btn sticky-cta-primary">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-            Jetzt bewerben
-        </a>
-        <a href="tel:+497366961000" class="sticky-cta-btn sticky-cta-secondary">
+        <a href="tel:+496451240353" class="sticky-cta-btn sticky-cta-primary">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
             Anrufen
+        </a>
+        <a href="https://wa.me/4915111638090" class="sticky-cta-btn sticky-cta-whatsapp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            WhatsApp
         </a>
     </div>
 
@@ -1471,14 +1557,19 @@
         <div class="container">
             <div class="section-eyebrow reveal">Bereit?</div>
             <h2 class="cta-title reveal stagger-1">
-                Lassen Sie uns Ihr<br><span class="accent">Projekt verwirklichen.</span>
+                Ihr Projekt verdient<br><span class="accent">Meisterqualität.</span>
             </h2>
             <p class="cta-desc reveal stagger-2">
-                Kontaktieren Sie uns für eine unverbindliche Beratung. Gemeinsam finden wir die perfekte Geländerlösung für Ihr Bauvorhaben.
+                Kontaktieren Sie uns für eine unverbindliche Beratung. Mit über 130 Jahren Erfahrung finden wir die optimale Lösung für Ihr Projekt — mit natürlichen Materialien und handwerklicher Perfektion.
             </p>
-            <a href="#kontakt" class="btn-hero btn-hero-fill reveal stagger-3">
-                Jetzt Kontakt aufnehmen <span class="btn-arrow">&rarr;</span>
-            </a>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="#kontakt" class="btn-hero btn-hero-fill reveal stagger-3">
+                    Angebot anfragen <span class="btn-arrow">&rarr;</span>
+                </a>
+                <a href="tel:+496451240353" class="btn-hero btn-hero-outline reveal stagger-4">
+                    06451 240353
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1490,24 +1581,283 @@
 
             <div class="kontakt-grid">
                 <div class="kontakt-card reveal-left">
-                    <h3>Haase Geländerbau GmbH</h3>
-                    <p>Aalen-Dewangen<br>73432 Aalen</p>
+                    <h3>Malerbetrieb Haase</h3>
+                    <p>Inh. Dirk Haase</p>
+                    <p>Wolfspfad 49</p>
+                    <p>35066 Frankenberg (Eder)</p>
                     <br>
-                    <p>Tel: <a href="tel:+497366961000">07366 / 9610-0</a></p>
+                    <p>Tel: <a href="tel:+496451240353">06451 240353</a></p>
+                    <p>Mobil: <a href="tel:+4915111638090">0151 11638090</a></p>
                     <br>
-                    <p>Mail: <a href="mailto:info@haase-gelaenderbau.de">info@haase-gelaenderbau.de</a></p>
+                    <p>Mail: <a href="mailto:Theo.Haase@web.de">Theo.Haase@web.de</a></p>
                     <br>
                     <p style="color: var(--text-muted); font-size: 13px; line-height: 1.8;">
-                        Geschäftsführer: Steffen Haase<br>
-                        Meisterbetrieb seit über 60 Jahren
+                        Dipl. Designer & Malermeister<br>
+                        Meisterbetrieb & Ausbildungsbetrieb<br>
+                        4. Generation — Gegründet ca. 1893
+                    </p>
+                    <br>
+                    <p style="color: var(--accent); font-size: 14px; font-weight: 600;">
+                        Fachmarkt „Haaseweiss"
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 13px;">
+                        Auestr. 32, 35066 Frankenberg (Eder)
                     </p>
                 </div>
                 <div class="reveal-right">
                     <iframe class="kontakt-map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10000!2d10.05!3d48.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAalen-Dewangen!5e0!3m2!1sde!2sde!4v1"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20224.57!2d8.7744!3d51.0595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bb5d4a8a0d2e3f%3A0x427f28131748170!2s35066%20Frankenberg%20(Eder)!5e0!3m2!1sde!2sde!4v1"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- IMPRESSUM -->
+    <!-- ============================================================ -->
+    <section class="section section-darker" id="impressum">
+        <div class="container" style="max-width: 800px;">
+            <div class="section-eyebrow reveal">Rechtliches</div>
+            <h2 class="section-title reveal stagger-1">Impressum</h2>
+
+            <div style="color: var(--text-secondary); font-size: 15px; line-height: 2;">
+
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</h3>
+                <p>
+                    Malerbetrieb Haase<br>
+                    Inh. Dirk Haase<br>
+                    Wolfspfad 49<br>
+                    35066 Frankenberg (Eder)
+                </p>
+
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">Kontakt</h3>
+                <p>
+                    Telefon: <a href="tel:+496451240353" style="color: var(--accent);">06451 240353</a><br>
+                    Mobil: <a href="tel:+4915111638090" style="color: var(--accent);">0151 11638090</a><br>
+                    E-Mail: <a href="mailto:Theo.Haase@web.de" style="color: var(--accent);">Theo.Haase@web.de</a>
+                </p>
+
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">Berufsbezeichnung und berufsrechtliche Regelungen</h3>
+                <p>
+                    Berufsbezeichnung: Malermeister, Dipl. Designer<br>
+                    Zuständige Kammer: Handwerkskammer Kassel<br>
+                    Verliehen in: Bundesrepublik Deutschland
+                </p>
+                <p>
+                    Es gelten folgende berufsrechtliche Regelungen:<br>
+                    Handwerksordnung (HwO), einsehbar unter: <a href="https://www.gesetze-im-internet.de/hwo/" target="_blank" rel="noopener" style="color: var(--accent);">www.gesetze-im-internet.de/hwo/</a>
+                </p>
+
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">Umsatzsteuer-Identifikationsnummer</h3>
+                <p>
+                    Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br>
+                    <strong style="color: var(--accent);">[USt-IdNr. bitte vom Betriebsinhaber ergänzen]</strong>
+                </p>
+
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">Aufsichtsbehörde</h3>
+                <p>
+                    Handwerkskammer Kassel<br>
+                    Scheidemannplatz 2<br>
+                    34117 Kassel<br>
+                    <a href="https://www.hwk-kassel.de" target="_blank" rel="noopener" style="color: var(--accent);">www.hwk-kassel.de</a>
+                </p>
+
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">Streitschlichtung</h3>
+                <p>
+                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener" style="color: var(--accent);">https://ec.europa.eu/consumers/odr/</a>
+                </p>
+                <p>
+                    Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                </p>
+
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">Haftung für Inhalte</h3>
+                <p>
+                    Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+                </p>
+                <p>
+                    Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+                </p>
+
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">Haftung für Links</h3>
+                <p>
+                    Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+                </p>
+                <p>
+                    Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+                </p>
+
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">Urheberrecht</h3>
+                <p>
+                    Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+                </p>
+                <p>
+                    Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+                </p>
+
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">Webseitenerstellung</h3>
+                <p>
+                    Diese Website wurde erstellt von:<br>
+                    <a href="https://www.lanecoreai.com" target="_blank" rel="noopener" style="color: var(--accent);">LaneCore AI</a>
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- DATENSCHUTZERKLÄRUNG -->
+    <!-- ============================================================ -->
+    <section class="section section-dark" id="datenschutz">
+        <div class="container" style="max-width: 800px;">
+            <div class="section-eyebrow reveal">Rechtliches</div>
+            <h2 class="section-title reveal stagger-1">Datenschutz&shy;erklärung</h2>
+
+            <div style="color: var(--text-secondary); font-size: 15px; line-height: 2;">
+
+                <!-- 1. VERANTWORTLICHER -->
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">1. Verantwortlicher</h3>
+                <p>
+                    Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer nationaler Datenschutzgesetze sowie sonstiger datenschutzrechtlicher Bestimmungen ist:
+                </p>
+                <p>
+                    Malerbetrieb Haase<br>
+                    Inh. Dirk Haase<br>
+                    Wolfspfad 49<br>
+                    35066 Frankenberg (Eder)<br>
+                    Telefon: 06451 240353<br>
+                    Mobil: 0151 11638090<br>
+                    E-Mail: Theo.Haase@web.de
+                </p>
+
+                <!-- 2. ALLGEMEINES -->
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">2. Allgemeine Hinweise zur Datenverarbeitung</h3>
+                <p>
+                    Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten erhoben werden, erfolgt dies stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.
+                </p>
+                <p>
+                    Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
+                </p>
+
+                <!-- 3. HOSTING -->
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">3. Hosting</h3>
+                <p>
+                    Diese Website wird bei GitHub Pages (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) gehostet. Beim Aufruf unserer Website werden automatisch Informationen in sogenannten Server-Log-Dateien gespeichert, die Ihr Browser automatisch an den Server übermittelt. Dies sind:
+                </p>
+                <ul style="margin: 1rem 0; padding-left: 2rem;">
+                    <li>Browsertyp und -version</li>
+                    <li>Verwendetes Betriebssystem</li>
+                    <li>Referrer URL (die zuvor besuchte Seite)</li>
+                    <li>Hostname des zugreifenden Rechners</li>
+                    <li>IP-Adresse</li>
+                    <li>Uhrzeit der Serveranfrage</li>
+                </ul>
+                <p>
+                    Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Server-Log-Dateien werden vom Hosting-Anbieter automatisch nach 30 Tagen gelöscht. Die Daten werden in die USA übermittelt, da GitHub Inc. seinen Sitz dort hat. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem fehlerfreien Betrieb der Website). GitHub Inc. ist unter dem EU-U.S. Data Privacy Framework zertifiziert, sodass ein angemessenes Datenschutzniveau gewährleistet ist.
+                </p>
+
+                <!-- 4. SCHRIFTARTEN (LOKAL GEHOSTET) -->
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">4. Schriftarten (lokal gehostet)</h3>
+                <p>
+                    Diese Website verwendet die Schriftarten Inter, Bebas Neue und JetBrains Mono zur einheitlichen Darstellung. Die Schriftarten werden lokal auf unserem Webserver gehostet und nicht von externen Servern (wie z. B. Google) geladen. Beim Aufruf dieser Website wird daher keine Verbindung zu Google-Servern hergestellt und es werden keine Daten an Google übermittelt.
+                </p>
+
+                <!-- 5. GOOGLE MAPS -->
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">5. Google Maps</h3>
+                <p>
+                    Wir nutzen auf unserer Website den Kartendienst Google Maps der Google LLC (1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). Die Einbindung erfolgt über einen iFrame.
+                </p>
+                <p>
+                    Bei Aufruf der Seite, auf der Google Maps eingebunden ist, werden Daten an Google übertragen, darunter Ihre IP-Adresse und der Standort Ihres Geräts. Weitere Informationen finden Sie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: var(--accent);">policies.google.com/privacy</a>.
+                </p>
+                <p>
+                    Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer komfortablen Standortanzeige für unsere Kunden).
+                </p>
+
+                <!-- 6. PEXELS BILDER -->
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">6. Externe Bilder (Pexels)</h3>
+                <p>
+                    Auf unserer Website werden Bilder von dem externen Dienst Pexels (Pexels GmbH / Canva Pty Ltd) eingebunden. Beim Aufruf unserer Website werden diese Bilder von den Servern von Pexels geladen, wobei Ihre IP-Adresse an Pexels übermittelt wird.
+                </p>
+                <p>
+                    Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer ansprechenden Gestaltung unserer Website).
+                </p>
+
+                <!-- 7. KONTAKTAUFNAHME -->
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">7. Kontaktaufnahme per E-Mail und Telefon</h3>
+                <p>
+                    Wenn Sie uns per E-Mail, Telefon oder über das Kontaktformular kontaktieren, werden Ihre Angaben (Name, E-Mail, Telefonnummer, Nachricht) zur Bearbeitung Ihrer Anfrage bei uns gespeichert. Das Kontaktformular auf dieser Website öffnet Ihr lokales E-Mail-Programm (mailto-Funktion) — es findet keine serverseitige Speicherung der Formulardaten auf dieser Website statt.
+                </p>
+                <p>
+                    Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung Ihrer Anfrage). Die Daten werden gelöscht, sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind.
+                </p>
+
+                <!-- 8. BEWERBUNGSFORMULAR -->
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">8. Bewerbungsformular</h3>
+                <p>
+                    Über das Bewerbungsformular auf unserer Website können Sie sich für offene Stellen bewerben. Das Formular nutzt die mailto-Funktion Ihres Browsers — die eingegebenen Daten werden direkt an unser E-Mail-Postfach übermittelt und nicht auf dem Webserver gespeichert.
+                </p>
+                <p>
+                    Ihre Bewerbungsdaten (Name, Telefon, E-Mail, Position, Erfahrung, Qualifikationen, Nachricht) werden ausschließlich für den Bewerbungsprozess verwendet und nach Abschluss des Verfahrens gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen. Die Aufbewahrungsfrist für abgelehnte Bewerbungen beträgt maximal 6 Monate.
+                </p>
+                <p>
+                    Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO i. V. m. § 26 BDSG (Durchführung vorvertraglicher Maßnahmen / Entscheidung über die Begründung eines Beschäftigungsverhältnisses).
+                </p>
+
+                <!-- 9. WHATSAPP -->
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">9. WhatsApp-Kontakt</h3>
+                <p>
+                    Auf unserer Website bieten wir die Möglichkeit, uns über WhatsApp (Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Irland) zu kontaktieren. Beim Klick auf den WhatsApp-Link werden Sie zur WhatsApp-Anwendung weitergeleitet. Eine Datenübertragung an Meta/WhatsApp erfolgt erst, wenn Sie die WhatsApp-Anwendung tatsächlich nutzen und eine Nachricht senden.
+                </p>
+                <p>
+                    Wir weisen darauf hin, dass WhatsApp Zugriff auf das Adressbuch des verwendeten Geräts erhält und die dort gespeicherten Kontaktdaten an WhatsApp-Server (ggf. in den USA) überträgt. Weitere Informationen finden Sie in der Datenschutzerklärung von WhatsApp: <a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener" style="color: var(--accent);">whatsapp.com/legal/privacy-policy-eea</a>.
+                </p>
+                <p>
+                    Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO (Einwilligung durch aktive Nutzung des WhatsApp-Links).
+                </p>
+
+                <!-- 10. COOKIES -->
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">10. Cookies</h3>
+                <p>
+                    Diese Website verwendet keine eigenen Cookies. Es werden weder Tracking-Cookies noch Analyse-Cookies eingesetzt. Durch die Einbindung externer Dienste (Google Fonts, Google Maps) können jedoch Cookies von Drittanbietern gesetzt werden. Informationen hierzu finden Sie in den jeweiligen Datenschutzerklärungen der Anbieter (siehe oben).
+                </p>
+
+                <!-- 11. IHRE RECHTE -->
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">11. Ihre Rechte als betroffene Person</h3>
+                <p>Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
+                <ul style="margin: 1rem 0; padding-left: 2rem;">
+                    <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO)</li>
+                    <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO)</li>
+                    <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO)</li>
+                    <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+                    <li><strong>Mitteilungspflicht</strong> (Art. 19 DSGVO) — Wir benachrichtigen alle Empfänger über Berichtigungen, Löschungen oder Einschränkungen</li>
+                    <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+                    <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO)</li>
+                    <li><strong>Recht auf Widerruf einer Einwilligung</strong> (Art. 7 Abs. 3 DSGVO)</li>
+                </ul>
+                <p>
+                    Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren. Zuständige Aufsichtsbehörde:
+                </p>
+                <p>
+                    Der Hessische Beauftragte für Datenschutz und Informationsfreiheit<br>
+                    Postfach 3163<br>
+                    65021 Wiesbaden<br>
+                    <a href="https://datenschutz.hessen.de" target="_blank" rel="noopener" style="color: var(--accent);">datenschutz.hessen.de</a>
+                </p>
+
+                <!-- 12. SSL/TLS -->
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">12. SSL- bzw. TLS-Verschlüsselung</h3>
+                <p>
+                    Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
+                </p>
+
+                <!-- 13. AKTUALITÄT -->
+                <h3 style="color: var(--text-primary); font-size: 18px; font-weight: 700; margin: 2rem 0 0.5rem;">13. Aktualität und Änderung dieser Datenschutzerklärung</h3>
+                <p>
+                    Diese Datenschutzerklärung hat den Stand März 2026. Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle Datenschutzerklärung kann jederzeit auf dieser Website abgerufen werden.
+                </p>
+
             </div>
         </div>
     </section>
@@ -1517,17 +1867,18 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="text-logo-footer">HAASE</div>
-                    <p>Ihr Meisterbetrieb für Geländerbau seit über 60 Jahren. Inhabergeführt aus Aalen-Dewangen in der Ostalb-Region.</p>
+                    <div class="footer-brand-text">MALERBETRIEB HAASE</div>
+                    <p>Dipl. Designer & Malermeister in 4. Generation. Seit über 130 Jahren Ihr Malerbetrieb in Frankenberg (Eder) und Region Waldeck-Frankenberg.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Leistungen</h4>
                     <ul>
-                        <li><a href="#leistungen">Treppengeländer</a></li>
-                        <li><a href="#leistungen">Balkongeländer</a></li>
-                        <li><a href="#leistungen">Außengeländer</a></li>
-                        <li><a href="#leistungen">Vordächer & Carports</a></li>
-                        <li><a href="#leistungen">Sonderkonstruktionen</a></li>
+                        <li><a href="#leistungen">Malerarbeiten</a></li>
+                        <li><a href="#leistungen">Fassade & Verputz</a></li>
+                        <li><a href="#leistungen">Wandmalerei & Dekor</a></li>
+                        <li><a href="#leistungen">Trockenbau</a></li>
+                        <li><a href="#leistungen">Lackierarbeiten</a></li>
+                        <li><a href="#leistungen">Bodenbeläge</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1535,22 +1886,21 @@
                     <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#about">Über uns</a></li>
+                        <li><a href="#fachmarkt">Fachmarkt</a></li>
                         <li><a href="#karriere">Karriere</a></li>
-                        <li><a href="#qualitaet">Qualität</a></li>
                         <li><a href="#kontakt">Kontakt</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Rechtliches</h4>
                     <ul>
-                        <li><a href="#">Impressum</a></li>
-                        <li><a href="#">Datenschutz</a></li>
-                        <li><a href="#">AGB</a></li>
+                        <li><a href="#impressum">Impressum</a></li>
+                        <li><a href="#datenschutz">Datenschutz</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Haase Geländerbau GmbH</p>
+                <p>&copy; 2026 Malerbetrieb Haase, Inh. Dirk Haase</p>
                 <p>Crafted by <a href="https://www.lanecoreai.com" target="_blank">LaneCore AI</a></p>
             </div>
         </div>
@@ -1675,14 +2025,52 @@
                 `E-Mail: ${values.email_bewerber || 'Nicht angegeben'}\n` +
                 `Position: ${values.position}\n` +
                 `Erfahrung: ${values.erfahrung || 'Nicht angegeben'}\n` +
-                `Qualifikation: ${values.qualifikation || 'Nicht angegeben'}\n` +
+                `Qualifikationen: ${values.qualifikation || 'Nicht angegeben'}\n` +
                 `Starttermin: ${values.start || 'Nicht angegeben'}\n` +
-                `Nachricht: ${values.nachricht || '\u2013'}\n`
+                `Nachricht: ${values.nachricht || '–'}\n`
             );
 
             setTimeout(() => {
-                window.location.href = `mailto:info@haase-gelaenderbau.de?subject=${subject}&body=${body}`;
+                window.location.href = `mailto:Theo.Haase@web.de?subject=${subject}&body=${body}`;
                 btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Bewerbung abgeschickt!';
+                btn.style.background = '#25D366';
+
+                setTimeout(() => {
+                    btn.innerHTML = origText;
+                    btn.disabled = false;
+                    btn.style.background = '';
+                    form.reset();
+                }, 4000);
+            }, 1200);
+        }
+
+        // ===== KONTAKT FORM (Anfrage) =====
+        function handleKontaktSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('.btn-submit');
+            const origText = btn.innerHTML;
+
+            btn.innerHTML = '<svg class="spinner" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;"><circle cx="12" cy="12" r="10" opacity="0.25"/><path d="M12 2a10 10 0 019.95 9" opacity="1"/></svg> Wird gesendet...';
+            btn.disabled = true;
+
+            const data = new FormData(form);
+            const values = {};
+            data.forEach((v, k) => values[k] = v);
+
+            const subject = encodeURIComponent(`Anfrage über Website: ${values.k_name}`);
+            const body = encodeURIComponent(
+                `NEUE ANFRAGE über Website\n` +
+                `================================\n\n` +
+                `Name: ${values.k_name}\n` +
+                `Telefon: ${values.k_telefon || 'Nicht angegeben'}\n` +
+                `E-Mail: ${values.k_email || 'Nicht angegeben'}\n` +
+                `Nachricht: ${values.k_nachricht || '–'}\n`
+            );
+
+            setTimeout(() => {
+                window.location.href = `mailto:Theo.Haase@web.de?subject=${subject}&body=${body}`;
+                btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Anfrage gesendet!';
                 btn.style.background = '#25D366';
 
                 setTimeout(() => {
@@ -1697,20 +2085,18 @@
         // ===== STICKY CTA VISIBILITY =====
         (function() {
             const stickyCta = document.getElementById('stickyCta');
-            const karriereSection = document.getElementById('karriere');
-            if (!stickyCta || !karriereSection) return;
+            if (!stickyCta) return;
 
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        stickyCta.classList.add('visible');
-                    } else {
-                        stickyCta.classList.remove('visible');
-                    }
-                });
-            }, { threshold: 0.05 });
-
-            observer.observe(karriereSection);
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                if (scrollY > 600) {
+                    stickyCta.classList.add('visible');
+                } else {
+                    stickyCta.classList.remove('visible');
+                }
+                lastScroll = scrollY;
+            });
         })();
     </script>
     <style>
